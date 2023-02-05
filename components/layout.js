@@ -1,6 +1,5 @@
 import React, { Fragment } from 'react';
 import Link from 'next/link';
-import Head from 'next/head';
 
 import { useSession, signIn, signOut } from 'next-auth/react';
 
@@ -8,27 +7,27 @@ import { AppContext } from '../context/app-context';
 
 import Loading from './loading';
 import ErrorAnnounce from './error-announce';
-import RoachmonLogo from './roachmon-logo';
+
 import MenuIcons from './menu-icons';
 import LoginButton from './login-button';
 import ActiveLink from './active-link';
 import GitHubLogo from './github-logo';
+import CockroachLabsLogo from './cockroach-labs-logo';
 
 const Layout = ({ children }) => {
   const { data: session } = useSession();
 
   return (
     <Fragment>
-      <Head>
-        <title>Roachmon</title>
-      </Head>
       <AppContext.Consumer>
         {({ isNavOpen, handleNav, status, clusters }) => {
           return (
             <Fragment>
               <header className='fixed flex items-center bg-white w-full px-4 shadow z-30 h-16'>
                 <div className='w-full max-w-8xl flex items-center justify-between'>
-                  <RoachmonLogo className='py-3' color='deep-purple' />
+                  <div className='py-3'>
+                    <CockroachLabsLogo color='brand-deep-purple' />
+                  </div>
                   <button onClick={handleNav} className='w-auto min-w-0 block p-1 border-none lg:hidden'>
                     <MenuIcons isNavOpen={isNavOpen} />
                   </button>
@@ -54,7 +53,9 @@ const Layout = ({ children }) => {
                     w-64 md:w-80 overflow-y-auto transition-all duration-300`}
                 >
                   <div className='flex gap-y-8 flex-col h-full'>
-                    <RoachmonLogo className='px-4 py-5' />
+                    <div className='px-4 py-5'>
+                      <CockroachLabsLogo />
+                    </div>
                     <div className='flex flex-col gap-y-4 h-full px-4'>
                       <Link href='/' className='flex items-center text-brand-neutral-400 hover:text-brand-light mt-2'>
                         <strong className='flex gap-2 items-center text-lg'>

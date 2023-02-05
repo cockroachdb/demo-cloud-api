@@ -7,7 +7,8 @@ module.exports = {
     // 'bg-red-50',
     // 'bg-gray-100',
     //
-    // This is for the logo
+    // These are for the logo
+    'fill-brand-deep-purple',
     'fill-brand-light',
   ],
   theme: {

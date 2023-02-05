@@ -37,7 +37,7 @@ OperationalStatusBadge.defaultProps = {
 
 OperationalStatusBadge.propTypes = {
   /** Trimmed string of types of operational_status from /api/v1/clusters */
-  status: PropTypes.oneOf(['UNSPECIFIED', 'RUNNING', 'FAILED']).isRequired,
+  status: PropTypes.oneOf(['UNSPECIFIED', 'RUNNING', 'FAILED', 'LIVE']).isRequired,
   /** The size of the chip */
   size: PropTypes.oneOf(['sm', 'lg']),
   /** The class names to apply */

@@ -28,8 +28,6 @@ const Page = ({ id }) => {
     },
   });
 
-  console.log(cluster);
-
   return (
     <Fragment>
       <section className='grid gap-4 lg:gap-8'>
