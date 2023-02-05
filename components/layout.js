@@ -41,16 +41,16 @@ const Layout = ({ children }) => {
                 role='button'
                 onClick={handleNav}
                 onKeyDown={(event) => (event.key === 'Enter' ? handleNav() : null)}
-                className={`z-20 top-0 w-screen h-screen bg-brand-narwhal-grey opacity-80 ${
+                className={`z-20 top-0 w-screen h-screen bg-brand-light opacity-90 ${
                   isNavOpen ? 'fixed lg:hidden' : 'hidden'
                 }`}
               />
 
               <div className='max-w-8xl'>
                 <nav
-                  className={`lg:block fixed top-0 bg-brand-narwhal-grey z-50 inset-0
-                    ${isNavOpen ? 'left-0' : '-left-64 md:-left-80 lg:left-0'}
-                    w-64 md:w-80 overflow-y-auto transition-all duration-300`}
+                  className={`lg:block fixed top-0 bg-brand-narwhal-grey z-50 shadow-lg inset-0
+                    ${isNavOpen ? 'left-0' : '-left-72 md:-left-80 lg:left-0'}
+                    w-72 md:w-80 overflow-y-auto transition-all duration-300`}
                 >
                   <div className='flex gap-y-8 flex-col h-full'>
                     <div className='px-4 py-5'>
