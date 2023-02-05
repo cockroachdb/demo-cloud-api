@@ -27,6 +27,8 @@ const Page = ({ id }) => {
     },
   });
 
+  console.log(cluster);
+
   return (
     <Fragment>
       <section className='grid gap-4 lg:gap-8'>
@@ -156,12 +158,12 @@ const Page = ({ id }) => {
                   ]}
                   properties={[
                     {
-                      label: 'Region',
+                      label: 'Region(s)',
                       value: (
                         <Fragment>
                           {cluster.data.regions.map((region, index) => {
                             return (
-                              <span className='block' key={index}>
+                              <span className='block lowercase' key={index}>
                                 {region.name}
                               </span>
                             );
@@ -189,10 +191,36 @@ const Page = ({ id }) => {
             </Fragment>
           ) : null}
         </div>
-        <div className='grid xl:grid-cols-2 gap-4 xl:gap-8 '>
-          <ClusterDatabases clusterId={id} />
-          <ClusterNodes clusterId={id} />
-        </div>
+        {cluster ? (
+          <div className='grid xl:grid-cols-2 gap-4 xl:gap-8 '>
+            <ClusterDatabases clusterId={id} />
+            {cluster.data.plan === 'SERVERLESS' ? (
+              <div className='flex flex-col items-center justify-center rounded-lg bg-brand-light shadow p-4 sm:p-8 min-h-[400px] h-full'>
+                <strong className='flex gap-2 items-center font-bold text-lg text-yellow-600'>
+                  <svg
+                    xmlns='http://www.w3.org/2000/svg'
+                    fill='none'
+                    viewBox='0 0 24 24'
+                    strokeWidth={1.5}
+                    stroke='currentColor'
+                    className='w-6 h-6'
+                    aria-label='Databases icon'
+                  >
+                    <path
+                      strokeLinecap='round'
+                      strokeLinejoin='round'
+                      d='M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126zM12 15.75h.007v.008H12v-.008z'
+                    />
+                  </svg>
+                  Data Unavailable
+                </strong>
+                <span className='text-sm text-brand-hidden-saphire'>Serverless Plans don't use Nodes.</span>
+              </div>
+            ) : (
+              <ClusterNodes clusterId={id} />
+            )}
+          </div>
+        ) : null}
       </section>
     </Fragment>
   );

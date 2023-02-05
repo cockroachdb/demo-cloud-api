@@ -165,7 +165,7 @@ const ClusterDatabases = ({ clusterId }) => {
 
 ClusterDatabases.propTypes = {
   /** The id of the cluster */
-  clusterId: PropTypes.string,
+  clusterId: PropTypes.string.isRequired,
 };
 
 export default ClusterDatabases;

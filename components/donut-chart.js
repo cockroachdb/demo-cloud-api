@@ -2,8 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const DonutChart = ({ statuses }) => {
-  const incrementAngle = 360 / statuses.length;
-
   const getColor = (string) => {
     switch (string) {
       case 'RUNNING':
@@ -17,6 +15,7 @@ const DonutChart = ({ statuses }) => {
     }
   };
 
+  const incrementAngle = 360 / statuses.length;
   const colors = statuses.map((status) => `${getColor(status)}`);
   const angles = new Array(statuses.length).fill().map((_, index) => `${incrementAngle * index}deg`);
 
