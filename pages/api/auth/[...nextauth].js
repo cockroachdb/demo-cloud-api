@@ -10,7 +10,7 @@ export const authOptions = {
   ],
   callbacks: {
     session({ session }) {
-      session.user.admin = session.user.email === process.env.GITHUB_ADMIN_USER ? true : false;
+      session.user.admin = session.user.email === process.env.GITHUB_ADMIN_EMAIL ? true : false;
       return session;
     },
   },
