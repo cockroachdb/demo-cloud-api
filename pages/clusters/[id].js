@@ -50,7 +50,7 @@ const Page = ({ id }) => {
           <span className='mb-1'>Back</span>
         </Link>
         <div
-          className={`relative flex bg-brand-narwhal-grey rounded p-4 sm:p-8 min-h-[485px] h-full ${
+          className={`relative flex bg-brand-narwhal-grey rounded p-4 sm:p-8 xl:min-h-[485px] h-full ${
             cluster ? 'xl:pb-0 flex-col gap-12 ' : ''
           }`}
         >
