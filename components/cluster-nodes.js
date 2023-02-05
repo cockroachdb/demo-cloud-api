@@ -22,7 +22,7 @@ const ClusterNodes = ({ clusterId }) => {
   });
 
   return (
-    <div className='flex flex-col gap-4 rounded-lg bg-brand-light shadow p-4 sm:p-8 min-h-[400px] h-full overflow-x-scroll'>
+    <div className='flex flex-col gap-4 rounded-lg bg-brand-light shadow p-4 sm:p-8 min-h-[500px] h-full overflow-x-scroll'>
       <strong className='flex gap-2 items-center font-bold text-lg text-brand-hidden-sapphire'>
         <svg
           xmlns='http://www.w3.org/2000/svg'
@@ -46,13 +46,13 @@ const ClusterNodes = ({ clusterId }) => {
         {nodesStatus == 'loading' ? <Loading className='mx-auto self-center' /> : null}
         {nodes ? (
           <Fragment>
-            <div className='overflow-x-scroll'>
+            <div className='overflow-x-scroll shadow-inner h-[380px]'>
               <table className='table-auto text-sm text-left m-0'>
                 <thead className='border-b border-b-brand-neutral-400 text-brand-hidden-saphire'>
                   <tr>
-                    <td className='p-2'>Name</td>
-                    <td className='p-2'>Region</td>
-                    <td className='p-2 text-right'>Status</td>
+                    <td className='px-2 py-4'>Name</td>
+                    <td className='px-2 py-4'>Region</td>
+                    <td className='px-2 py-4 text-right'>Status</td>
                   </tr>
                 </thead>
                 <tbody>
