@@ -54,7 +54,7 @@ const Page = ({ id }) => {
         </Link>
         <div
           className={`relative flex bg-brand-narwhal-grey rounded p-4 sm:p-8 xl:min-h-[485px] h-full ${
-            cluster ? 'xl:pb-0 flex-col gap-12 ' : ''
+            cluster ? 'xl:pb-0 flex-col gap-12' : ''
           }`}
         >
           {status === 'error' ? <ErrorAnnounce /> : null}
