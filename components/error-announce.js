@@ -23,7 +23,7 @@ const ErrorAnnounce = ({ message }) => {
   );
 };
 
-ErrorAnnounce.defaultProp = {
+ErrorAnnounce.defaultProps = {
   message: 'Error',
 };
 
