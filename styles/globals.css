@@ -12,13 +12,14 @@
   }
 
   a,
-  button {
+  button,
+  input {
     @apply rounded focus:outline-none focus-visible:ring-2 focus:ring-brand-neutral-400;
   }
   button {
     @apply bg-white border border-gray-300 px-4 py-2 rounded font-bold min-w-fit;
   }
   input {
-    @apply bg-white border border-gray-300 p-2 rounded text-sm;
+    @apply bg-white border border-gray-300 p-2 text-sm;
   }
 }

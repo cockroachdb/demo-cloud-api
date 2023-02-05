@@ -8,6 +8,7 @@ import OperationalStatusBadge from '../../components/operational-status-badge';
 import Underline from '../../components/underline';
 import Particles from '../../components/particles';
 import ClusterPanel from '../../components/cluster-panel';
+
 import CloudProviderLogo from '../../components/cloud-provider-logo';
 
 import ClusterDatabases from '../../components/cluster-databases';
@@ -26,6 +27,8 @@ const Page = ({ id }) => {
       return response.json();
     },
   });
+
+  console.log(cluster);
 
   return (
     <Fragment>
@@ -98,25 +101,25 @@ const Page = ({ id }) => {
                       ? [
                           {
                             label: 'Spend Limit',
-                            value: `$${cluster.data.config[cluster.data.plan.toLowerCase()].spend_limit}`,
+                            value: `$${cluster.data.config.serverless.spend_limit}`,
                           },
                         ]
                       : [
                           {
                             label: 'Machine Type',
-                            value: cluster.data.config[cluster.data.plan.toLowerCase()].machine_type,
+                            value: cluster.data.config.dedicated.machine_type,
                           },
                           {
                             label: 'Storage Gib',
-                            value: cluster.data.config[cluster.data.plan.toLowerCase()].storage_gib,
+                            value: cluster.data.config.dedicated.storage_gib,
                           },
                           {
                             label: 'Disk Iops',
-                            value: cluster.data.config[cluster.data.plan.toLowerCase()].disk_iops,
+                            value: cluster.data.config.dedicated.disk_iops,
                           },
                           {
                             label: 'Virtual CPUs',
-                            value: cluster.data.config[cluster.data.plan.toLowerCase()].num_virtual_cpus,
+                            value: cluster.data.config.dedicated.num_virtual_cpus,
                           },
                         ]
                   }
