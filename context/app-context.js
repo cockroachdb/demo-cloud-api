@@ -1,9 +1,11 @@
 import React, { createContext, useState } from 'react';
+import { useSession } from 'next-auth/react';
 import { useQuery } from '@tanstack/react-query';
 
 export const AppContext = createContext();
 
 export const AppProvider = ({ children }) => {
+  const { data: session } = useSession();
   const [isNavOpen, setIsNavOpen] = useState(false);
 
   const { status, data: clusters } = useQuery({
@@ -30,6 +32,7 @@ export const AppProvider = ({ children }) => {
         handleNav,
         status,
         clusters,
+        admin: session?.user.admin,
       }}
     >
       {children}

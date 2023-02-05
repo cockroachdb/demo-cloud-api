@@ -29,7 +29,7 @@ ErrorAnnounce.defaultProps = {
 
 ErrorAnnounce.propTypes = {
   /** The message to display */
-  message: PropTypes.func.isRequired,
+  message: PropTypes.string.isRequired,
 };
 
 export default ErrorAnnounce;

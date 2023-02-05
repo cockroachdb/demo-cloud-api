@@ -6,7 +6,7 @@ export default async function (req, res) {
 
   const { query } = req;
 
-  if (session) {
+  if (session?.user.admin) {
     try {
       const response = await fetch(
         `https://cockroachlabs.cloud/api/v1/clusters/${query.id}?field_mask=serverless.spend_limit`,
