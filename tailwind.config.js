@@ -58,6 +58,7 @@ module.exports = {
           'not-tonight': '#0b0717',
           'ocean-green': '#033457',
           'ocean-border': '#00538f',
+          'neutral-100': '#dee4fa',
         },
       },
       fontSize: {

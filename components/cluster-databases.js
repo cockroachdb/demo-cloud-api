@@ -83,7 +83,7 @@ const ClusterDatabases = ({ clusterId }) => {
         {databasesStatus == 'loading' ? <Loading className='mx-auto self-center' /> : null}
         {databases ? (
           <Fragment>
-            <div className='overflow-x-scroll shadow-inner h-[265px]'>
+            <div className='overflow-x-scroll h-[265px] rounded border border-brand-neutral-100'>
               <table className='table-auto text-sm text-left m-0'>
                 <thead className='border-b border-b-brand-neutral-400 text-brand-hidden-saphire'>
                   <tr>
