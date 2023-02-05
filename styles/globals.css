@@ -1,0 +1,24 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html,
+  body {
+    @apply min-w-[320px] antialiased bg-brand-gray-f4;
+  }
+  .app-min-height {
+    min-height: calc(100vh - theme('spacing.16'));
+  }
+
+  a,
+  button {
+    @apply rounded focus:outline-none focus-visible:ring-2 focus:ring-brand-neutral-400;
+  }
+  button {
+    @apply bg-white border border-gray-300 px-4 py-2 rounded font-bold min-w-fit;
+  }
+  input {
+    @apply bg-white border border-gray-300 p-2 rounded text-sm;
+  }
+}
