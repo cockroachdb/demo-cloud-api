@@ -21,8 +21,6 @@ export const AppProvider = ({ children }) => {
     },
   });
 
-  console.log('session.user: ', session?.user);
-
   const handleNav = () => {
     setIsNavOpen(!isNavOpen);
   };
