@@ -8,11 +8,10 @@ import OperationalStatusBadge from '../../components/operational-status-badge';
 import Underline from '../../components/underline';
 import Particles from '../../components/particles';
 import ClusterPanel from '../../components/cluster-panel';
-
 import CloudProviderLogo from '../../components/cloud-provider-logo';
-
 import ClusterDatabases from '../../components/cluster-databases';
 import ClusterNodes from '../../components/cluster-nodes';
+import UpdateSpendLimit from '../../components/update-spend-limit';
 
 const Page = ({ id }) => {
   const { status, data: cluster } = useQuery({
@@ -100,6 +99,14 @@ const Page = ({ id }) => {
                           {
                             label: 'Spend Limit',
                             value: `$${cluster.data.config.serverless.spend_limit}`,
+                          },
+                          {
+                            component: (
+                              <UpdateSpendLimit
+                                clusterId={id}
+                                spendLimit={cluster.data.config.serverless.spend_limit}
+                              />
+                            ),
                           },
                         ]
                       : [

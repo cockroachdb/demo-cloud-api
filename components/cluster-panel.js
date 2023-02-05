@@ -1,9 +1,9 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 
-const ClusterPanel = ({ title, paths, properties }) => {
+const ClusterPanel = ({ title, paths, properties, component }) => {
   return (
-    <article className='flex flex-col gap-2 border border-brand-ocean-green p-4 rounded-b-lg xl:rounded-b-none sm:rounded-t-lg bg-gradient-radial from-brand-ocean-green to-brand-narwhal-grey'>
+    <article className='flex flex-col  gap-2 border border-brand-ocean-green p-4 rounded-b-lg xl:rounded-b-none sm:rounded-t-lg bg-gradient-radial from-brand-ocean-green to-brand-narwhal-grey'>
       <strong className='flex gap-2 items-center font-bold text-brand-light'>
         <svg
           xmlns='http://www.w3.org/2000/svg'
@@ -21,9 +21,14 @@ const ClusterPanel = ({ title, paths, properties }) => {
         {title}
       </strong>
       <hr className='mt-0 mb-2 border-brand-ocean-border' />
-      <div className='grid xl:grid-cols-2 gap-4'>
+      <div className={`grid ${properties.some((property) => property.component) ? '' : 'xl:grid-cols-2'} gap-4`}>
         {properties.map((property, index) => {
-          const { label, value } = property;
+          const { label, value, component } = property;
+
+          if (component) {
+            return <Fragment key={index}>{component}</Fragment>;
+          }
+
           return (
             <div key={index} className='flex flex-col xl:even:text-right xl:even:items-end even:grow'>
               <small className='text-sm text-brand-starfleet-blue'>{label}</small>
@@ -44,8 +49,9 @@ ClusterPanel.propTypes = {
   /** The items to display */
   properties: PropTypes.arrayOf(
     PropTypes.shape({
-      label: PropTypes.string.isRequired,
+      label: PropTypes.string,
       value: PropTypes.oneOfType([PropTypes.string, PropTypes.number, PropTypes.element]),
+      component: PropTypes.element,
     })
   ),
 };

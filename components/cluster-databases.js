@@ -153,7 +153,7 @@ const ClusterDatabases = ({ clusterId }) => {
                 className='text-sm min-w-fit border-brand-starfleet-blue bg-brand-starfleet-blue text-brand-light disabled:border-gray-200 disabled:bg-gray-200 disabled:text-brand-evening-hush disabled:cursor-not-allowed'
                 disabled={!session || createStatus === 'loading' || deleteStatus === 'loading'}
               >
-                Create Database
+                Submit
               </button>
             </form>
           </Fragment>
