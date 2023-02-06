@@ -77,8 +77,8 @@ const Layout = ({ children }) => {
                         <MenuIcons isNavOpen={isNavOpen} className="block sm:hidden" />
                       </button>
                     </div>
-                    <div className="flex flex-col gap-y-4 h-full px-4">
-                      <Link href="/" className="flex items-center text-brand-neutral-400 hover:text-brand-light mt-2">
+                    <div className="flex flex-col gap-y-2 h-full px-4">
+                      <Link href="/" className="flex items-center text-brand-neutral-400 hover:text-brand-light">
                         <strong className="flex gap-2 items-center text-lg">
                           <svg
                             xmlns="http://www.w3.org/2000/svg"
@@ -126,29 +126,25 @@ const Layout = ({ children }) => {
                               )
                             })}
                           </ul>
-                          <Link
-                            href="/"
-                            className="flex items-center text-brand-neutral-400 hover:text-brand-light mt-2"
-                          >
-                            <strong className="flex gap-2 items-center text-lg">
-                              <svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                fill="none"
-                                viewBox="0 0 24 24"
-                                strokeWidth={2}
-                                stroke="currentColor"
-                                className="w-5 h-5"
-                                aria-label="Cluster icon"
-                              >
-                                <path
-                                  strokeLinecap="round"
-                                  strokeLinejoin="round"
-                                  d="M13.19 8.688a4.5 4.5 0 011.242 7.244l-4.5 4.5a4.5 4.5 0 01-6.364-6.364l1.757-1.757m13.35-.622l1.757-1.757a4.5 4.5 0 00-6.364-6.364l-4.5 4.5a4.5 4.5 0 001.242 7.244"
-                                />
-                              </svg>
-                              Useful Links
-                            </strong>
-                          </Link>
+                          <hr className="border-brand-neutral-400 my-6 opacity-20" />
+                          <strong className="flex gap-2 items-center text-base text-brand-neutral-400 font-normal">
+                            <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              fill="none"
+                              viewBox="0 0 24 24"
+                              strokeWidth={2}
+                              stroke="currentColor"
+                              className="w-5 h-5"
+                              aria-label="Cluster icon"
+                            >
+                              <path
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                d="M13.19 8.688a4.5 4.5 0 011.242 7.244l-4.5 4.5a4.5 4.5 0 01-6.364-6.364l1.757-1.757m13.35-.622l1.757-1.757a4.5 4.5 0 00-6.364-6.364l-4.5 4.5a4.5 4.5 0 001.242 7.244"
+                              />
+                            </svg>
+                            Useful Links
+                          </strong>
                           <ul>
                             {links.map((link, index) => {
                               const { name, url } = link
@@ -200,7 +196,7 @@ const Layout = ({ children }) => {
                           )}
                         </li>
                         <li>
-                          <hr className="border-brand-hidden-sapphire mt-3 mb-0" />
+                          <hr className="border-brand-neutral-400 mt-3 mb-0 opacity-20" />
                         </li>
                         <li>
                           <a
