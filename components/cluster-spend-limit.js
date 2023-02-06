@@ -31,7 +31,7 @@ const ClusterSpendLimit = ({ clusterId, spendLimit, callback }) => {
     <AppContext.Consumer>
       {({ admin }) => {
         return (
-          <div className="flex flex-col gap-4 rounded-lg bg-white shadow p-4 sm:p-8 min-h-[600px] h-full">
+          <div className="flex flex-col gap-4 rounded-lg bg-white shadow p-4 sm:p-8  h-full">
             <strong className="flex gap-2 items-center font-bold text-lg text-brand-hidden-sapphire">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
