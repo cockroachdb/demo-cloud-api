@@ -22,7 +22,7 @@ const links = [
   },
   {
     name: '/docs/api/cloud/v1',
-    url: 'https://www.cockroachlabs.com/docs/api/cloud/v1#get-/api/v1/'
+    url: 'https://www.cockroachlabs.com/docs/api/cloud/v1.html#overview'
   },
   {
     name: '/blog',
@@ -201,7 +201,7 @@ const Layout = ({ children }) => {
                         </li>
                         <li>
                           <a
-                            href="https://www.cockroachlabs.com/docs/api/cloud/v1.html#overview"
+                            href="https://github.com/cockroachdb/demo-cloud-api/"
                             target="blank"
                             rel="noopener"
                             className="flex gap-3 items-center font-medium px-0 sm:px-3 py-2 text-xs sm:text-sm text-brand-light hover:text-brand-neutral-400"
