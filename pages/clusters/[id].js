@@ -29,7 +29,7 @@ const Page = ({ id }) => {
 
   return (
     <Fragment>
-      <section className="grid gap-4 lg:gap-6">
+      <section className="flex flex-col gap-4 items-start shrink lg:gap-6">
         <Link
           href="/"
           className="flex items-center justify-self-start gap-1 no-underline text-sm text-brand-hidden-sapphire hover:text-brand-starfleet-blue"
@@ -50,8 +50,8 @@ const Page = ({ id }) => {
           <span className="mb-1">Back</span>
         </Link>
         <div
-          className={`relative flex bg-brand-narwhal-grey rounded p-4 sm:p-8 xl:min-h-[485px] h-full ${
-            cluster ? 'xl:pb-0 flex-col gap-12' : ''
+          className={`relative flex bg-brand-narwhal-grey justify-center rounded p-4 sm:p-8 xl:min-h-[500px] w-full h-full gap-12 ${
+            cluster ? 'xl:pb-0 flex-col' : ''
           }`}
         >
           {status === 'error' ? <ErrorAnnounce /> : null}
@@ -194,7 +194,7 @@ const Page = ({ id }) => {
           ) : null}
         </div>
         {cluster ? (
-          <div className="grid xl:grid-cols-2 gap-4 xl:gap-8 ">
+          <div className="grid xl:grid-cols-2 gap-4 xl:gap-8 w-full">
             <ClusterDatabases clusterId={id} />
             {cluster.data.plan === 'SERVERLESS' ? (
               <ClusterSpendLimit clusterId={id} spendLimit={cluster.data.config.serverless.spend_limit} />
