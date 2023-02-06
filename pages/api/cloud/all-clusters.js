@@ -15,25 +15,7 @@ export default async function (req, res) {
 
     res.status(200).json({
       message: 'A Ok!',
-      // data: json.clusters,
-      // data: json.clusters
-      //   .map((cluster) => {
-      //     return {
-      //       ...cluster,
-      //       operation_status: 'RUNNING',
-      //     };
-      //   })
       data: json.clusters
-        .map((cluster) => {
-          return {
-            ...cluster,
-            operation_status:
-              cluster.name === 'cloud-api-demo-basic-doe' || cluster.name === 'cloud-api-demo-whiner-hippo'
-                ? 'FAILED'
-                : 'RUNNING'
-          }
-        })
-        .sort((a, b) => a.name.localeCompare(b.name))
     })
   } catch (error) {
     res.status(500).json({
