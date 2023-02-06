@@ -4,7 +4,7 @@ import { useMutation, useQueryClient } from '@tanstack/react-query'
 
 import { AppContext } from '../context/app-context'
 
-const ClusterSpendLimit = ({ clusterId, spendLimit }) => {
+const ClusterSpendLimit = ({ clusterId, spendLimit, callback }) => {
   const queryClient = useQueryClient()
 
   const { status: updateStatus, mutate: updateMutate } = useMutation({
@@ -23,6 +23,7 @@ const ClusterSpendLimit = ({ clusterId, spendLimit }) => {
     onSuccess: async () => {
       queryClient.invalidateQueries({ queryKey: [`cluster-${clusterId}`] })
       queryClient.invalidateQueries({ queryKey: ['clusters'] })
+      callback()
     }
   })
 
@@ -107,7 +108,9 @@ ClusterSpendLimit.propTypes = {
   /** The cluster id */
   clusterId: PropTypes.string.isRequired,
   /** The current spend_limit */
-  spendLimit: PropTypes.number.isRequired
+  spendLimit: PropTypes.number.isRequired,
+  /** callback function to refresh data in [id].js / SSR page */
+  callback: PropTypes.func.isRequired
 }
 
 export default ClusterSpendLimit
