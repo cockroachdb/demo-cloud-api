@@ -2,7 +2,6 @@ import React, { Fragment } from 'react'
 import Link from 'next/link'
 
 import ErrorAnnounce from '../components/error-announce'
-
 import Heartbeat from '../components/heartbeat'
 import Particles from '../components/particles'
 import OperationalStatusBadge from '../components/operational-status-badge'
