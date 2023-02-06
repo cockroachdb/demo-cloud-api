@@ -8,11 +8,12 @@ import { AppContext } from '../context/app-context'
 import Loading from './loading'
 import ErrorAnnounce from './error-announce'
 
+import CockroachLabsLogo from './cockroach-labs-logo'
 import MenuIcons from './menu-icons'
 import LoginButton from './login-button'
 import ActiveLink from './active-link'
 import GitHubLogo from './github-logo'
-import CockroachLabsLogo from './cockroach-labs-logo'
+import NewsletterForm from '../components/newsletter-form'
 
 const links = [
   {
@@ -102,7 +103,7 @@ const Layout = ({ children }) => {
                       {status === 'loading' ? <Loading /> : null}
                       {clusters ? (
                         <Fragment>
-                          <ul className="list-none flex px-1 flex-col gap-1">
+                          <ul className="list-none flex flex-col gap-1 px-1">
                             {clusters.data.map((cluster, index) => {
                               const { id, name } = cluster
                               return (
@@ -145,7 +146,7 @@ const Layout = ({ children }) => {
                             </svg>
                             Useful Links
                           </strong>
-                          <ul>
+                          <ul className="list-none">
                             {links.map((link, index) => {
                               const { name, url } = link
                               return (
@@ -225,8 +226,9 @@ const Layout = ({ children }) => {
                   </div>
                 </nav>
                 <main className="bg-brand-gray-f4 lg:pl-[20rem]">
-                  <div className="app-min-height flex flex-col prose prose-lg max-w-none px-4 py-6 lg:p-8">
+                  <div className="app-min-height flex flex-col gap-10 prose prose-lg max-w-none px-4 py-6 lg:p-8">
                     {children}
+                    <NewsletterForm formId={process.env.NEXT_PUBLIC_NEWSLETTER_FORM_ID} />
                   </div>
                 </main>
               </div>
