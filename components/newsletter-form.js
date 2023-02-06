@@ -29,7 +29,7 @@ const NewsletterForm = ({ formId }) => {
   }
 
   return (
-    <section className="bg-white rounded-lg shadow px-4 py-8 sm:p-8">
+    <section className="bg-brand-white rounded shadow px-4 py-8 sm:p-8">
       <div className="flex flex-col mx-auto md:max-w-md gap-1">
         <strong className="flex gap-2 items-center justify-center font-bold text-lg text-brand-hidden-sapphire">
           <svg
@@ -49,10 +49,10 @@ const NewsletterForm = ({ formId }) => {
           </svg>
           Newsletter
         </strong>
-        <p className="text-center text-sm text-brand-hidden-saphire m-0">
+        <small className="text-center text-sm text-brand-hidden-saphire m-0">
           Latest CockroachDB news - blogs - webinars - videos <br /> and what we're reading.
-        </p>
-        <div className="w-full pt-6">
+        </small>
+        <div className="w-full">
           <form onSubmit={handleSubmit} className="flex gap-2 items-end">
             <label className="flex flex-col gap-1 grow text-xs text-gray-600 font-medium">
               <span className="after:content-['*'] after:mt-0.5 after:text-red-500 flex gap-1 grow text-xs text-gray-600 font-medium">
