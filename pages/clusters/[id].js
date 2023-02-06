@@ -29,7 +29,7 @@ const Page = ({ id }) => {
 
   return (
     <Fragment>
-      <section className="grid gap-4 lg:gap-6">
+      <section className="grid gap-4 justify-start lg:gap-6">
         <Link
           href="/"
           className="flex items-center justify-self-start gap-1 no-underline text-sm text-brand-hidden-sapphire hover:text-brand-starfleet-blue"
