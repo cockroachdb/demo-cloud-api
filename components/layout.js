@@ -226,7 +226,7 @@ const Layout = ({ children }) => {
                   </div>
                 </nav>
                 <main className="bg-brand-gray-f4 lg:pl-[20rem]">
-                  <div className="app-min-height flex flex-col gap-10 prose prose-lg max-w-none px-4 py-6 lg:p-8">
+                  <div className="app-min-height flex flex-col gap-6 lg:gap-8 prose prose-lg max-w-none px-4 py-6 lg:p-8">
                     {children}
                     <NewsletterForm formId={process.env.NEXT_PUBLIC_NEWSLETTER_FORM_ID} />
                   </div>
