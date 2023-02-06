@@ -9,12 +9,12 @@ module.exports = {
     //
     // These are for the logo
     'fill-brand-deep-purple',
-    'fill-brand-light',
+    'fill-brand-light'
   ],
   theme: {
     extend: {
       backgroundImage: {
-        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
+        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))'
       },
       colors: {
         brand: {
@@ -59,29 +59,29 @@ module.exports = {
           'not-tonight': '#0b0717',
           'ocean-green': '#033457',
           'ocean-border': '#00538f',
-          'neutral-100': '#dee4fa',
-        },
+          'neutral-100': '#dee4fa'
+        }
       },
       fontSize: {
-        xxs: '0.6rem',
+        xxs: '0.6rem'
       },
       gridTemplateColumns: {
         ['auto-auto']: 'auto auto',
         ['auto-1fr']: 'auto 1fr',
         ['1fr-auto']: '1fr auto',
-        ['1fr-1fr']: '1fr 1fr',
+        ['1fr-1fr']: '1fr 1fr'
       },
       keyframes: {
         float: {
           '0%': { opacity: '0%', transform: 'translateY(0px)' },
           '50%': { opacity: '100%' },
-          '100%': { opacity: '0%', transform: 'translateY(-400px)' },
-        },
+          '100%': { opacity: '0%', transform: 'translateY(-400px)' }
+        }
       },
       maxWidth: {
-        '8xl': '90rem',
-      },
-    },
+        '8xl': '90rem'
+      }
+    }
   },
   plugins: [
     require('@tailwindcss/typography'),
@@ -89,20 +89,20 @@ module.exports = {
     function ({ addBase, theme }) {
       function extractColorVars(colorObj, colorGroup = '') {
         return Object.keys(colorObj).reduce((vars, colorKey) => {
-          const value = colorObj[colorKey];
+          const value = colorObj[colorKey]
 
           const newVars =
             typeof value === 'string'
               ? { [`--color${colorGroup}-${colorKey}`]: value }
-              : extractColorVars(value, `-${colorKey}`);
+              : extractColorVars(value, `-${colorKey}`)
 
-          return { ...vars, ...newVars };
-        }, {});
+          return { ...vars, ...newVars }
+        }, {})
       }
 
       addBase({
-        ':root': extractColorVars(theme('colors')),
-      });
-    },
-  ],
-};
+        ':root': extractColorVars(theme('colors'))
+      })
+    }
+  ]
+}

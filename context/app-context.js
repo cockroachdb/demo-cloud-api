@@ -1,29 +1,29 @@
-import React, { createContext, useState } from 'react';
-import { useSession } from 'next-auth/react';
-import { useQuery } from '@tanstack/react-query';
+import React, { createContext, useState } from 'react'
+import { useSession } from 'next-auth/react'
+import { useQuery } from '@tanstack/react-query'
 
-export const AppContext = createContext();
+export const AppContext = createContext()
 
 export const AppProvider = ({ children }) => {
-  const { data: session } = useSession();
-  const [isNavOpen, setIsNavOpen] = useState(false);
+  const { data: session } = useSession()
+  const [isNavOpen, setIsNavOpen] = useState(false)
 
   const { status, data: clusters } = useQuery({
     queryKey: ['clusters'],
     queryFn: async () => {
-      const response = await fetch('/api/cloud/all-clusters');
+      const response = await fetch('/api/cloud/all-clusters')
 
       if (!response.ok) {
-        throw new Error('Bad Response');
+        throw new Error('Bad Response')
       }
 
-      return response.json();
-    },
-  });
+      return response.json()
+    }
+  })
 
   const handleNav = () => {
-    setIsNavOpen(!isNavOpen);
-  };
+    setIsNavOpen(!isNavOpen)
+  }
 
   return (
     <AppContext.Provider
@@ -32,10 +32,10 @@ export const AppProvider = ({ children }) => {
         handleNav,
         status,
         clusters,
-        admin: session?.user.admin,
+        admin: session?.user.admin
       }}
     >
       {children}
     </AppContext.Provider>
-  );
-};
+  )
+}

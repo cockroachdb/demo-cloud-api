@@ -1,42 +1,42 @@
-import { getServerSession } from 'next-auth/next';
-import { authOptions } from '../auth/[...nextauth]';
+import { getServerSession } from 'next-auth/next'
+import { authOptions } from '../auth/[...nextauth]'
 
 export default async function (req, res) {
-  const session = await getServerSession(req, res, authOptions);
+  const session = await getServerSession(req, res, authOptions)
 
-  const { query } = req;
+  const { query } = req
 
   if (session?.user.admin) {
     try {
       const response = await fetch(`https://cockroachlabs.cloud/api/v1/clusters/${query.id}/databases/${query.name}`, {
         method: 'DELETE',
         headers: {
-          Authorization: `Bearer ${process.env.COCKROACH_CLOUD_SECRET_KEY}`,
-        },
-      });
+          Authorization: `Bearer ${process.env.COCKROACH_CLOUD_SECRET_KEY}`
+        }
+      })
 
       if (!response.ok) {
-        throw new Error(response.statusText);
+        throw new Error(response.statusText)
       }
 
-      const json = await response.json();
+      const json = await response.json()
 
       res.status(200).json({
         message: 'A Ok!',
-        data: json,
-      });
+        data: json
+      })
     } catch (error) {
-      console.error(error);
+      console.error(error)
       res.status(500).json({
         message: 'Error!',
-        error: error.message,
-      });
+        error: error.message
+      })
     }
   } else {
     res.status(401).json({
       message: 'Error!',
-      error: 'Unauthorized',
-    });
+      error: 'Unauthorized'
+    })
   }
-  res.end();
+  res.end()
 }
