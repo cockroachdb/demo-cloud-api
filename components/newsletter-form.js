@@ -55,7 +55,7 @@ const NewsletterForm = ({ formId }) => {
         <div className="w-full pt-6">
           <form onSubmit={handleSubmit} className="flex gap-2 items-end">
             <label className="flex flex-col gap-1 grow text-xs text-gray-600 font-medium">
-              <span className="after:content-['*'] after:ml-0.5 after:text-red-500 flex gap-1 grow text-xs text-gray-600 font-medium">
+              <span className="after:content-['*'] after:mt-0.5 after:text-red-500 flex gap-1 grow text-xs text-gray-600 font-medium">
                 Email
               </span>
               <input
@@ -72,7 +72,7 @@ const NewsletterForm = ({ formId }) => {
 
             <button
               type="submit"
-              className="text-sm min-w-fit border-brand-electric-purple bg-brand-electric-purple text-brand-light disabled:border-gray-200 disabled:bg-gray-200 disabled:text-brand-evening-hush disabled:cursor-not-allowed px-2"
+              className="text-sm min-w-fit border-brand-electric-purple bg-brand-electric-purple text-white disabled:border-gray-200 disabled:bg-gray-200 disabled:text-brand-hidden-sapphire disabled:cursor-not-allowed px-2"
               disabled={state.isSubmitting}
               aria-label="Newsletter subscribe"
             >
@@ -93,17 +93,17 @@ const NewsletterForm = ({ formId }) => {
             </button>
           </form>
           <span className="flex items-start py-1 h-8">
-            {state.isSubmitting ? <span className="text-xs text-brand-yellow">Submitting...</span> : null}
+            {state.isSubmitting ? <span className="text-xs text-yellow-700">Submitting...</span> : null}
             {state.success ? <span className="text-xs text-green-500">Thanks for signing up.</span> : null}
           </span>
         </div>
-        <small className="block text-xs text-center text-brand-evening-hush">
+        <small className="block text-xs text-center text-brand-hidden-sapphire">
           To update your email preferences visit{' '}
           <a
             href="https://www.cockroachlabs.com/email-preferences/"
             target="_blank"
             rel="noreferrer"
-            className="text-brand-evening-hush hover:text-brand-electric-purple"
+            className="text-brand-hidden-sapphire hover:text-brand-electric-purple"
           >
             cockroachlabs.com
           </a>

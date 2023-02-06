@@ -52,7 +52,7 @@ const ClusterSpendLimit = ({ clusterId, spendLimit }) => {
 
             <div className="flex items-center justify-center h-full">
               <div>
-                <strong className="flex gap-2 font-bold text-lg text-yellow-600">
+                <strong className="flex gap-2 font-bold text-lg text-yellow-700">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"
@@ -89,7 +89,7 @@ const ClusterSpendLimit = ({ clusterId, spendLimit }) => {
                 </label>
                 <button
                   type="submit"
-                  className="text-sm min-w-fit border-brand-starfleet-blue bg-brand-starfleet-blue text-brand-light disabled:border-gray-200 disabled:bg-gray-200 disabled:text-brand-evening-hush disabled:cursor-not-allowed"
+                  className="text-sm min-w-fit border-brand-electric-purple bg-brand-electric-purple text-white disabled:border-gray-200 disabled:bg-gray-200 disabled:text-brand-evening-hush disabled:cursor-not-allowed"
                   disabled={!admin || updateStatus === 'loading'}
                 >
                   Update

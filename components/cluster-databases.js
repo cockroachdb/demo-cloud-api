@@ -153,7 +153,7 @@ const ClusterDatabases = ({ clusterId }) => {
                     </label>
                     <button
                       type="submit"
-                      className="text-sm min-w-fit border-brand-starfleet-blue bg-brand-starfleet-blue text-brand-light disabled:border-gray-200 disabled:bg-gray-200 disabled:text-brand-evening-hush disabled:cursor-not-allowed"
+                      className="text-sm min-w-fit border-brand-electric-purple bg-brand-electric-purple text-white disabled:border-gray-200 disabled:bg-gray-200 disabled:text-brand-evening-hush disabled:cursor-not-allowed"
                       disabled={!admin || createStatus === 'loading' || deleteStatus === 'loading'}
                     >
                       Create
