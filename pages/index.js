@@ -18,7 +18,7 @@ const Page = () => {
     <AppContext.Consumer>
       {({ status, clusters }) => {
         return (
-          <section className="grid gap-6 lg:gap-8">
+          <section className="index-min-height grid gap-6 lg:gap-8">
             {status === 'error' ? <ErrorAnnounce /> : null}
             {status === 'loading' ? <Loading /> : null}
             {clusters ? (

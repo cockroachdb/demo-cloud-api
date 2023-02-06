@@ -10,7 +10,12 @@
   .app-min-height {
     min-height: calc(100vh - theme('spacing.16'));
   }
-
+  .index-min-height {
+    min-height: calc(100vh - 25rem);
+  }
+  .page-min-height {
+    min-height: calc(100vh - 25.6rem);
+  }
   a,
   button,
   input {
