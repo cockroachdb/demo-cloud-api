@@ -29,7 +29,7 @@ const Page = ({ id }) => {
 
   return (
     <Fragment>
-      <section className="grid gap-4lg:gap-6">
+      <section className="grid gap-4 lg:gap-6">
         <Link
           href="/"
           className="flex items-center justify-self-start gap-1 no-underline text-sm text-brand-hidden-sapphire hover:text-brand-starfleet-blue"
@@ -50,7 +50,7 @@ const Page = ({ id }) => {
           <span className="mb-1">Back</span>
         </Link>
         <div
-          className={`relative flex bg-brand-narwhal-grey rounded p-4 sm:p-8 xl:min-h-[485px] h-full ${
+          className={`relative flex bg-brand-narwhal-grey rounded p-4 sm:p-8 min-h-[485px] h-full ${
             cluster ? 'xl:pb-0 flex-col gap-12' : ''
           }`}
         >
@@ -191,9 +191,7 @@ const Page = ({ id }) => {
                 />
               </div>
             </Fragment>
-          ) : (
-            <div />
-          )}
+          ) : null}
         </div>
         {cluster ? (
           <div className="grid xl:grid-cols-2 gap-4 xl:gap-8 ">
@@ -204,9 +202,7 @@ const Page = ({ id }) => {
               <ClusterNodes clusterId={id} />
             )}
           </div>
-        ) : (
-          <div />
-        )}
+        ) : null}
       </section>
     </Fragment>
   )
