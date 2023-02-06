@@ -7,7 +7,7 @@ import { AppContext } from '../context/app-context'
 import ErrorAnnounce from './error-announce'
 import Loading from './loading'
 
-const ClusterDatabases = ({ clusterId, callback }) => {
+const ClusterDatabases = ({ clusterId }) => {
   const formRef = useRef()
   const queryClient = useQueryClient()
 
@@ -40,7 +40,6 @@ const ClusterDatabases = ({ clusterId, callback }) => {
     onSuccess: async () => {
       queryClient.invalidateQueries({ queryKey: [`databases-${clusterId}`] })
       formRef.current.reset()
-      callback()
     }
   })
 
@@ -56,7 +55,6 @@ const ClusterDatabases = ({ clusterId, callback }) => {
     },
     onSuccess: async () => {
       queryClient.invalidateQueries({ queryKey: [`databases-${clusterId}`] })
-      callback()
     }
   })
 
@@ -173,9 +171,7 @@ const ClusterDatabases = ({ clusterId, callback }) => {
 
 ClusterDatabases.propTypes = {
   /** The id of the cluster */
-  clusterId: PropTypes.string.isRequired,
-  /** callback function to refresh data in [id].js / SSR page */
-  callback: PropTypes.func.isRequired
+  clusterId: PropTypes.string.isRequired
 }
 
 export default ClusterDatabases

@@ -178,7 +178,7 @@ const Page = ({ cluster, status }) => {
           </div>
         </div>
         <div className="grid xl:grid-cols-2 gap-6 xl:gap-8 w-full">
-          <ClusterDatabases clusterId={cluster.id} callback={refreshData} />
+          <ClusterDatabases clusterId={cluster.id} />
           {cluster.plan === 'SERVERLESS' ? (
             <ClusterSpendLimit
               clusterId={cluster.id}
