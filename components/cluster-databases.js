@@ -62,7 +62,7 @@ const ClusterDatabases = ({ clusterId }) => {
     <AppContext.Consumer>
       {({ admin }) => {
         return (
-          <div className="flex flex-col gap-4 rounded-lg bg-brand-light shadow p-4 sm:p-8 min-h-[500px] h-full overflow-x-scroll">
+          <div className="flex flex-col gap-4 rounded-lg bg-brand-light shadow p-4 sm:p-8 min-h-[600px] h-full overflow-x-scroll">
             <strong className="flex gap-2 items-center font-bold text-lg text-brand-hidden-sapphire">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -156,7 +156,7 @@ const ClusterDatabases = ({ clusterId }) => {
                       className="text-sm min-w-fit border-brand-starfleet-blue bg-brand-starfleet-blue text-brand-light disabled:border-gray-200 disabled:bg-gray-200 disabled:text-brand-evening-hush disabled:cursor-not-allowed"
                       disabled={!admin || createStatus === 'loading' || deleteStatus === 'loading'}
                     >
-                      Submit
+                      Create
                     </button>
                   </form>
                 </Fragment>

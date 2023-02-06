@@ -11,7 +11,7 @@ import ClusterPanel from '../../components/cluster-panel'
 import CloudProviderLogo from '../../components/cloud-provider-logo'
 import ClusterDatabases from '../../components/cluster-databases'
 import ClusterNodes from '../../components/cluster-nodes'
-import UpdateSpendLimit from '../../components/update-spend-limit'
+import ClusterSpendLimit from '../../components/cluster-spend-limit'
 
 const Page = ({ id }) => {
   const { status, data: cluster } = useQuery({
@@ -26,6 +26,8 @@ const Page = ({ id }) => {
       return response.json()
     }
   })
+
+  console.log(cluster?.data.config.serverless)
 
   return (
     <Fragment>
@@ -101,12 +103,8 @@ const Page = ({ id }) => {
                             value: `$${cluster.data.config.serverless.spend_limit}`
                           },
                           {
-                            component: (
-                              <UpdateSpendLimit
-                                clusterId={id}
-                                spendLimit={cluster.data.config.serverless.spend_limit}
-                              />
-                            )
+                            label: 'Routing ID',
+                            value: cluster.data.config.serverless.routing_id.split('-').at(-1)
                           }
                         ]
                       : [
@@ -201,27 +199,7 @@ const Page = ({ id }) => {
           <div className="grid xl:grid-cols-2 gap-4 xl:gap-8 ">
             <ClusterDatabases clusterId={id} />
             {cluster.data.plan === 'SERVERLESS' ? (
-              <div className="flex flex-col items-center justify-center rounded-lg bg-brand-light shadow p-4 sm:p-8 min-h-[400px] h-full">
-                <strong className="flex gap-2 items-center font-bold text-lg text-yellow-600">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    strokeWidth={1.5}
-                    stroke="currentColor"
-                    className="w-6 h-6"
-                    aria-label="Databases icon"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126zM12 15.75h.007v.008H12v-.008z"
-                    />
-                  </svg>
-                  Data Unavailable
-                </strong>
-                <span className="text-sm text-brand-hidden-saphire">Serverless Plans don't use Nodes.</span>
-              </div>
+              <ClusterSpendLimit clusterId={id} spendLimit={cluster.data.config.serverless.spend_limit} />
             ) : (
               <ClusterNodes clusterId={id} />
             )}

@@ -21,13 +21,9 @@ const ClusterPanel = ({ title, paths, properties, component }) => {
         {title}
       </strong>
       <hr className="mt-0 mb-2 border-brand-ocean-border" />
-      <div className={`grid ${properties.some((property) => property.component) ? '' : 'xl:grid-cols-2'} gap-4`}>
+      <div className="grid xl:grid-cols-2 gap-4">
         {properties.map((property, index) => {
-          const { label, value, component } = property
-
-          if (component) {
-            return <Fragment key={index}>{component}</Fragment>
-          }
+          const { label, value } = property
 
           return (
             <div key={index} className="flex flex-col xl:even:text-right xl:even:items-end even:grow">
@@ -49,9 +45,8 @@ ClusterPanel.propTypes = {
   /** The items to display */
   properties: PropTypes.arrayOf(
     PropTypes.shape({
-      label: PropTypes.string,
-      value: PropTypes.oneOfType([PropTypes.string, PropTypes.number, PropTypes.element]),
-      component: PropTypes.element
+      label: PropTypes.string.isRequired,
+      value: PropTypes.oneOfType([PropTypes.string, PropTypes.number, PropTypes.element]).isRequired
     })
   )
 }
