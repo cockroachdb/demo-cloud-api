@@ -1,3 +1,3 @@
-# cockroachdb-cloud-api
+# Demo Cloud API
 
-A demo dashboard for the CockroachDB Cloud API
+A CockroachDB Cloud API Demo Application
