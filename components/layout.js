@@ -14,6 +14,21 @@ import ActiveLink from './active-link'
 import GitHubLogo from './github-logo'
 import CockroachLabsLogo from './cockroach-labs-logo'
 
+const links = [
+  {
+    name: 'cockroachlabs.com',
+    url: 'https://www.cockroachlabs.com/'
+  },
+  {
+    name: '/docs/api/cloud/v1',
+    url: 'https://www.cockroachlabs.com/docs/api/cloud/v1#get-/api/v1/'
+  },
+  {
+    name: '/blog',
+    url: 'https://www.cockroachlabs.com/blog/'
+  }
+]
+
 const Layout = ({ children }) => {
   const { data: session } = useSession()
 
@@ -86,8 +101,8 @@ const Layout = ({ children }) => {
                       {status === 'error' ? <ErrorAnnounce /> : null}
                       {status === 'loading' ? <Loading /> : null}
                       {clusters ? (
-                        <ul className="list-none flex px-1 flex-col grow gap-1">
-                          <Fragment>
+                        <Fragment>
+                          <ul className="list-none flex px-1 flex-col gap-1">
                             {clusters.data.map((cluster, index) => {
                               const { id, name } = cluster
                               return (
@@ -110,8 +125,56 @@ const Layout = ({ children }) => {
                                 </li>
                               )
                             })}
-                          </Fragment>
-                        </ul>
+                          </ul>
+                          <Link
+                            href="/"
+                            className="flex items-center text-brand-neutral-400 hover:text-brand-light mt-2"
+                          >
+                            <strong className="flex gap-2 items-center text-lg">
+                              <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                                strokeWidth={2}
+                                stroke="currentColor"
+                                className="w-5 h-5"
+                                aria-label="Cluster icon"
+                              >
+                                <path
+                                  strokeLinecap="round"
+                                  strokeLinejoin="round"
+                                  d="M13.19 8.688a4.5 4.5 0 011.242 7.244l-4.5 4.5a4.5 4.5 0 01-6.364-6.364l1.757-1.757m13.35-.622l1.757-1.757a4.5 4.5 0 00-6.364-6.364l-4.5 4.5a4.5 4.5 0 001.242 7.244"
+                                />
+                              </svg>
+                              Useful Links
+                            </strong>
+                          </Link>
+                          <ul>
+                            {links.map((link, index) => {
+                              const { name, url } = link
+                              return (
+                                <li key={index}>
+                                  <a
+                                    href={url}
+                                    target="_blank"
+                                    rel="noopener"
+                                    className="flex gap-3 items-center font-medium px-0 sm:px-3 py-2 text-xs sm:text-sm text-brand-light hover:text-brand-neutral-400"
+                                  >
+                                    <svg
+                                      xmlns="http://www.w3.org/2000/svg"
+                                      viewBox="0 0 24 24"
+                                      fill="currentColor"
+                                      className="w-2 h-2 mt-0.5"
+                                    >
+                                      <circle cx="12" cy="12" r="12" />
+                                    </svg>
+                                    {name}
+                                  </a>
+                                </li>
+                              )
+                            })}
+                          </ul>
+                        </Fragment>
                       ) : null}
                     </div>
                     <div className="p-4">
