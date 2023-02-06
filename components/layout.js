@@ -114,34 +114,54 @@ const Layout = ({ children }) => {
                         </ul>
                       ) : null}
                     </div>
-                    <div className='px-4 block lg:hidden'>
-                      <div className='flex items-end'>
-                        <ul className='list-none grow'>
-                          <li className='flex'>
-                            {session ? (
-                              <button
-                                aria-label='Sign out'
-                                className='bg-transparent border border-brand-starfleet-blue text-brand-starfleet-blue w-full'
-                                onClick={() => signOut()}
-                              >
-                                Sign out
-                              </button>
-                            ) : (
-                              <button
-                                aria-label='Sign in'
-                                className='bg-transparent border border-brand-starfleet-blue text-brand-starfleet-blue flex gap-2 items-center justify-center w-full'
-                                onClick={() => signIn()}
-                              >
-                                <GitHubLogo />
-                                Sign in
-                              </button>
-                            )}
-                          </li>
-                        </ul>
-                      </div>
-                      <div>
-                        <hr className='border-brand-hidden-sapphire my-8' />
-                      </div>
+                    <div className='p-4'>
+                      <ul className='flex flex-col gap-4 list-none grow'>
+                        <li className='flex lg:hidden'>
+                          {session ? (
+                            <button
+                              aria-label='Sign out'
+                              className='bg-transparent border border-brand-starfleet-blue text-brand-starfleet-blue w-full'
+                              onClick={() => signOut()}
+                            >
+                              Sign out
+                            </button>
+                          ) : (
+                            <button
+                              aria-label='Sign in'
+                              className='bg-transparent border border-brand-starfleet-blue text-brand-starfleet-blue flex gap-2 items-center justify-center w-full'
+                              onClick={() => signIn()}
+                            >
+                              <GitHubLogo />
+                              Sign in
+                            </button>
+                          )}
+                        </li>
+                        <li>
+                          <hr className='border-brand-hidden-sapphire mt-3 mb-0' />
+                        </li>
+                        <li>
+                          <a
+                            href='https://github.com/cockroachdb/demo-cloud-api'
+                            target='blank'
+                            rel='noopener'
+                            className='flex gap-3 items-center font-medium px-0 sm:px-3 py-2 text-xs sm:text-sm text-brand-light hover:text-brand-neutral-400'
+                          >
+                            <svg
+                              xmlns='http://www.w3.org/2000/svg'
+                              fill='currentColor'
+                              viewBox='0 0 24 24'
+                              className='w-6 h-6'
+                              aria-label='GitHub Logo'
+                            >
+                              <path
+                                d='M12.01,1.64C6.18,1.64,1.46,6.39,1.46,12.26c0,4.7,3.02,8.67,7.21,10.08,.52,.11,.72-.23,.72-.51,0-.25-.02-1.09-.02-1.97-2.93,.63-3.55-1.27-3.55-1.27-.47-1.23-1.17-1.55-1.17-1.55-.96-.65,.07-.65,.07-.65,1.07,.07,1.62,1.09,1.62,1.09,.94,1.62,2.46,1.16,3.07,.88,.09-.69,.37-1.16,.66-1.42-2.34-.25-4.8-1.16-4.8-5.24,0-1.16,.42-2.11,1.08-2.85-.1-.26-.47-1.35,.1-2.81,0,0,.89-.28,2.9,1.09,.86-.23,1.75-.35,2.64-.35,.89,0,1.8,.12,2.64,.35,2.01-1.37,2.9-1.09,2.9-1.09,.58,1.46,.21,2.55,.1,2.81,.68,.74,1.08,1.69,1.08,2.85,0,4.08-2.46,4.98-4.82,5.24,.38,.33,.72,.97,.72,1.97,0,1.42-.02,2.57-.02,2.92,0,.28,.19,.62,.72,.51,4.19-1.41,7.21-5.38,7.21-10.08,.02-5.88-4.72-10.63-10.53-10.63Z'
+                                fillRule='evenodd'
+                              />
+                            </svg>
+                            cockroachdb/demo-cloud-api
+                          </a>
+                        </li>
+                      </ul>
                     </div>
                   </div>
                 </nav>
