@@ -82,7 +82,7 @@ const ClusterSpendLimit = ({ clusterId, spendLimit }) => {
                     name="spendLimit"
                     type="number"
                     defaultValue={spendLimit}
-                    className="disabled:text-brand-neutral-400 disabled:cursor-not-allowed"
+                    className="disabled:text-gray-400 disabled:cursor-not-allowed"
                     disabled={!admin || updateStatus === 'loading'}
                     required
                   />

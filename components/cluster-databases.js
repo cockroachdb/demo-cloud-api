@@ -146,7 +146,7 @@ const ClusterDatabases = ({ clusterId }) => {
                         name="name"
                         type="text"
                         placeholder="some-name"
-                        className="disabled:text-brand-neutral-400 disabled:cursor-not-allowed"
+                        className="disabled:text-gray-400 disabled:cursor-not-allowed"
                         disabled={!admin || createStatus === 'loading' || deleteStatus === 'loading'}
                         required
                       />
