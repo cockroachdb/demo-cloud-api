@@ -29,7 +29,7 @@ const Page = ({ id }) => {
 
   return (
     <Fragment>
-      <section className="flex flex-col gap-4 lg:gap-6 items-start shrink ">
+      <section className="flex flex-col gap-6 xl:gap-8 items-start shrink ">
         <Link
           href="/"
           className="flex items-center justify-self-start gap-1 no-underline text-sm text-brand-hidden-sapphire hover:text-brand-starfleet-blue"
@@ -194,7 +194,7 @@ const Page = ({ id }) => {
           ) : null}
         </div>
         {cluster ? (
-          <div className="grid xl:grid-cols-2 gap-4 xl:gap-8 w-full">
+          <div className="grid xl:grid-cols-2 gap-6 xl:gap-8 w-full">
             <ClusterDatabases clusterId={id} />
             {cluster.data.plan === 'SERVERLESS' ? (
               <ClusterSpendLimit clusterId={id} spendLimit={cluster.data.config.serverless.spend_limit} />
