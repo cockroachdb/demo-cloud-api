@@ -62,7 +62,7 @@ const ClusterDatabases = ({ clusterId }) => {
     <AppContext.Consumer>
       {({ admin }) => {
         return (
-          <div className="flex flex-col gap-4 rounded-lg bg-white shadow p-4 sm:p-8 min-h-[600px] h-full overflow-x-scroll">
+          <div className="flex flex-col gap-4 rounded-lg bg-white shadow p-4 sm:p-8 min-h-[600px] h-full">
             <strong className="flex gap-2 items-center font-bold text-lg text-brand-hidden-sapphire">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -81,12 +81,12 @@ const ClusterDatabases = ({ clusterId }) => {
               </svg>
               Databases
             </strong>
-            <div className={`h-full flex ${databases ? 'flex-col' : ''} `}>
+            <div className={`h-full flex overflow-hidden ${databases ? 'flex-col' : ''} `}>
               {databasesStatus === 'error' ? <ErrorAnnounce /> : null}
               {databasesStatus == 'loading' ? <Loading className="mx-auto self-center" /> : null}
               {databases ? (
                 <Fragment>
-                  <div className="overflow-x-scroll h-[365px] rounded border border-brand-neutral-100">
+                  <div className="overflow-y-scroll h-[365px] rounded border border-brand-neutral-100">
                     <table className="table-auto text-sm text-left m-0">
                       <thead className="border-b border-b-brand-neutral-400 text-brand-hidden-saphire">
                         <tr>
