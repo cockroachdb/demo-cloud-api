@@ -46,7 +46,7 @@ const ClusterNodes = ({ clusterId }) => {
         {nodesStatus == 'loading' ? <Loading className="mx-auto self-center" /> : null}
         {nodes ? (
           <Fragment>
-            <div className="overflow-y-scroll h-[480px] rounded border border-brand-neutral-100">
+            <div className="overflow-y-auto h-[480px] rounded border border-brand-neutral-100">
               <table className="table-auto text-sm text-left m-0">
                 <thead className="border-b border-b-brand-neutral-400 text-brand-hidden-saphire">
                   <tr>
