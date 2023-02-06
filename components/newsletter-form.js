@@ -50,7 +50,7 @@ const NewsletterForm = ({ formId }) => {
           Newsletter
         </strong>
         <p className="text-center text-sm text-brand-hidden-saphire m-0">
-          Subscribe to our Newsletter to receive the latest news.
+          Latest CockroachDB news - blogs - webinars - videos <br /> and what we're reading.
         </p>
         <div className="w-full pt-6">
           <form onSubmit={handleSubmit} className="flex gap-2 items-end">

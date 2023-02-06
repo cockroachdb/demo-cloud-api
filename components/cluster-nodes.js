@@ -22,7 +22,7 @@ const ClusterNodes = ({ clusterId }) => {
   })
 
   return (
-    <div className="flex flex-col gap-4 rounded-lg bg-white shadow p-4 sm:p-8 min-h-[500px] h-full">
+    <div className="flex flex-col gap-4 rounded-lg bg-white shadow p-4 sm:p-8 overflow-x-scroll">
       <strong className="flex gap-2 items-center font-bold text-lg text-brand-hidden-sapphire">
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -41,13 +41,13 @@ const ClusterNodes = ({ clusterId }) => {
         </svg>
         Nodes
       </strong>
-      <div className={`h-full flex overflow-hidden ${nodes ? 'flex-col' : ''} `}>
+      <div className={`h-full flex overflow-x-scroll ${nodes ? 'flex-col' : ''}`}>
         {nodesStatus === 'error' ? <ErrorAnnounce /> : null}
-        {nodesStatus == 'loading' ? <Loading className="mx-auto self-center" /> : null}
+        {nodesStatus === 'loading' ? <Loading className="mx-auto self-center" /> : null}
         {nodes ? (
           <Fragment>
-            <div className="overflow-y-auto h-[480px] rounded border border-brand-neutral-100">
-              <table className="table-auto text-sm text-left m-0">
+            <div className="overflow-y-auto xl:h-[390px] rounded border border-brand-neutral-100">
+              <table className="table-auto text-sm text-left m-0 min-w-[280px]">
                 <thead className="border-b border-b-brand-neutral-400 text-brand-hidden-saphire">
                   <tr>
                     <td className="px-2 py-4">Name</td>

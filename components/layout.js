@@ -79,7 +79,11 @@ const Layout = ({ children }) => {
                       </button>
                     </div>
                     <div className="flex flex-col gap-y-2 h-full px-4">
-                      <Link href="/" className="flex items-center text-brand-neutral-400 hover:text-brand-light">
+                      <Link
+                        href="/"
+                        className="flex items-center text-brand-neutral-400 hover:text-brand-light"
+                        onClick={handleNav}
+                      >
                         <strong className="flex gap-2 items-center text-lg">
                           <svg
                             xmlns="http://www.w3.org/2000/svg"
@@ -112,6 +116,7 @@ const Layout = ({ children }) => {
                                     href={`/clusters/${id}`}
                                     activeClassName="font-bold !text-brand-starfleet-blue"
                                     className="flex gap-3 items-center font-medium px-0 sm:px-3 py-2 text-xs sm:text-sm text-brand-light hover:text-brand-neutral-400"
+                                    onClick={handleNav}
                                   >
                                     <svg
                                       xmlns="http://www.w3.org/2000/svg"
@@ -180,7 +185,7 @@ const Layout = ({ children }) => {
                           {session ? (
                             <button
                               aria-label="Sign out"
-                              className="bg-transparent border border-brand-starfleet-blue text-brand-starfleet-blue w-full"
+                              className="text-xs sm:text-sm bg-transparent border border-brand-starfleet-blue text-brand-starfleet-blue w-full"
                               onClick={() => signOut()}
                             >
                               Sign out
@@ -188,7 +193,7 @@ const Layout = ({ children }) => {
                           ) : (
                             <button
                               aria-label="Sign in"
-                              className="bg-transparent border border-brand-starfleet-blue text-brand-starfleet-blue flex gap-2 items-center justify-center w-full"
+                              className="text-xs sm:text-sm bg-transparent border border-brand-starfleet-blue text-brand-starfleet-blue flex gap-2 items-center justify-center w-full"
                               onClick={() => signIn()}
                             >
                               <GitHubLogo />
@@ -226,7 +231,7 @@ const Layout = ({ children }) => {
                   </div>
                 </nav>
                 <main className="bg-brand-gray-f4 lg:pl-[20rem]">
-                  <div className="app-min-height flex flex-col gap-6 xl:gap-8 prose prose-lg max-w-none px-4 py-6 lg:p-8">
+                  <div className="grid gap-6 xl:gap-8 prose prose-lg max-w-none px-4 py-6 lg:p-8">
                     {children}
                     <NewsletterForm formId={process.env.NEXT_PUBLIC_NEWSLETTER_FORM_ID} />
                   </div>

@@ -23,7 +23,7 @@ const Page = ({ cluster, status }) => {
 
   return (
     <Fragment>
-      <section className="flex flex-col gap-6 xl:gap-8 items-start shrink ">
+      <section className="flex flex-col gap-6 xl:gap-8 items-start">
         <Link
           href="/"
           className="flex items-center justify-self-start gap-1 no-underline text-sm text-brand-hidden-sapphire hover:text-brand-starfleet-blue"
