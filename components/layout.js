@@ -49,12 +49,18 @@ const Layout = ({ children }) => {
               <div className='max-w-8xl'>
                 <nav
                   className={`lg:block fixed top-0 bg-brand-narwhal-grey z-50 shadow-lg inset-0
-                    ${isNavOpen ? 'left-0' : '-left-72 md:-left-80 lg:left-0'}
-                    w-72 md:w-80 overflow-y-auto transition-all duration-300`}
+                    ${isNavOpen ? 'left-0' : '-left-full sm:-left-80 lg:left-0'}
+                    w-full sm:w-80 overflow-y-auto transition-all duration-300`}
                 >
                   <div className='flex gap-y-8 flex-col h-full'>
-                    <div className='px-4 py-5'>
+                    <div className='flex items-center justify-between sm:justify-start px-4 py-5 h-16'>
                       <CockroachLabsLogo />
+                      <button
+                        onClick={handleNav}
+                        className='bg-transparent text-brand-light w-auto min-w-0 block p-1 border-none lg:hidden'
+                      >
+                        <MenuIcons isNavOpen={isNavOpen} className='block sm:hidden' />
+                      </button>
                     </div>
                     <div className='flex flex-col gap-y-4 h-full px-4'>
                       <Link href='/' className='flex items-center text-brand-neutral-400 hover:text-brand-light mt-2'>
@@ -89,7 +95,7 @@ const Layout = ({ children }) => {
                                   <ActiveLink
                                     href={`/clusters/${id}`}
                                     activeClassName='font-bold !text-brand-starfleet-blue'
-                                    className='flex gap-2 items-center font-medium px-0 md:px-2 py-2 text-xs md:text-sm text-brand-light hover:text-brand-neutral-400'
+                                    className='flex gap-3 items-center font-medium px-0 sm:px-3 py-2 text-xs sm:text-sm text-brand-light hover:text-brand-neutral-400'
                                   >
                                     <svg
                                       xmlns='http://www.w3.org/2000/svg'
