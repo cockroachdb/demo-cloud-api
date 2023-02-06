@@ -27,8 +27,6 @@ const Page = ({ id }) => {
     }
   })
 
-  console.log(cluster?.data.config.serverless)
-
   return (
     <Fragment>
       <section className="grid gap-4 lg:gap-6">
