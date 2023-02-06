@@ -92,7 +92,7 @@ const NewsletterForm = ({ formId }) => {
               </svg>
             </button>
           </form>
-          <span className="block h-8">
+          <span className="flex items-start py-1 h-8">
             {state.isSubmitting ? <span className="text-xs text-brand-yellow">Submitting...</span> : null}
             {state.success ? <span className="text-xs text-green-500">Thanks for signing up.</span> : null}
           </span>
