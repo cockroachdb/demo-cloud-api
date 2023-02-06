@@ -166,7 +166,9 @@ const Layout = ({ children }) => {
                   </div>
                 </nav>
                 <main className='bg-brand-gray-f4 lg:pl-[20rem]'>
-                  <div className='app-min-height flex flex-col prose prose-lg max-w-none p-4 lg:p-10'>{children}</div>
+                  <div className='app-min-height flex flex-col prose prose-lg max-w-none px-4 py-6 lg:p-8'>
+                    {children}
+                  </div>
                 </main>
               </div>
             </Fragment>
