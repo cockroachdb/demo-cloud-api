@@ -8,7 +8,7 @@ const useMarketo = ({ formId, callback }) => {
     if (scriptAdded) {
       if (!formLoaded) {
         MktoForms2.loadForm(
-          `//${process.env.NEXT_PUBLIC_BASE_URL}`,
+          `//${process.env.NEXT_PUBLIC_MARKETO_BASE_URL}`,
           process.env.NEXT_PUBLIC_MUNCHKIN_ID,
           formId,
           callback
@@ -52,7 +52,7 @@ const useMarketo = ({ formId, callback }) => {
         const script = document.createElement('script')
         script.defer = true
         script.onload = () => (window?.MktoForms2 ? setScriptAdded(true) : null)
-        script.src = `//${process.env.NEXT_PUBLIC_BASE_URL}/js/forms2/js/forms2.min.js`
+        script.src = `//${process.env.NEXT_PUBLIC_MARKETO_BASE_URL}/js/forms2/js/forms2.min.js`
         document.head.appendChild(script)
       }
     }
