@@ -1,5 +1,6 @@
 import React, { Fragment } from 'react'
 import Link from 'next/link'
+import { getInfo } from 'cloud-regions-country-flags'
 
 import ErrorAnnounce from '../components/error-announce'
 import Heartbeat from '../components/heartbeat'
@@ -126,9 +127,11 @@ const Page = ({ clusters, status }) => {
                     <ul className="list-none flex flex-col gap-x-6 p-0 m-0">
                       {regions.map((region, index) => {
                         const { name } = region
+
                         return (
-                          <li key={index} className="text-xs p-0 m-0">
-                            {name}
+                          <li key={index} className="flex items-center gap-1 text-xs p-0 m-0">
+                            <span className="mt-0.5">{getInfo(name, cluster.cloud_provider).flag}</span>
+                            <span>{name}</span>
                           </li>
                         )
                       })}

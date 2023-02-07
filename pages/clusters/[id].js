@@ -1,6 +1,7 @@
 import React, { Fragment } from 'react'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
+import { getInfo } from 'cloud-regions-country-flags'
 
 import ErrorAnnounce from '../../components/error-announce'
 import OperationalStatusBadge from '../../components/operational-status-badge'
@@ -150,9 +151,11 @@ const Page = ({ cluster, status }) => {
                   value: (
                     <Fragment>
                       {cluster.regions.map((region, index) => {
+                        const { name } = region
                         return (
-                          <span className="block lowercase" key={index}>
-                            {region.name}
+                          <span className="flex items-center gap-1 lowercase" key={index}>
+                            <span className="mt-0.5">{getInfo(name, cluster.cloud_provider).flag}</span>
+                            <span>{name}</span>
                           </span>
                         )
                       })}
