@@ -57,7 +57,7 @@ const Layout = ({ children }) => {
                 role="button"
                 onClick={handleNav}
                 onKeyDown={(event) => (event.key === 'Enter' ? handleNav() : null)}
-                className={`z-20 top-0 w-screen h-screen bg-brand-light opacity-90 ${
+                className={`z-20 top-0 w-screen h-screen bg-brand-narwhal-grey opacity-90 ${
                   isNavOpen ? 'fixed lg:hidden' : 'hidden'
                 }`}
               />
