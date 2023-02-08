@@ -1,4 +1,6 @@
 export default async function (req, res) {
+  res.setHeader('Access-Control-Allow-Origin', '*')
+
   try {
     const response = await fetch('https://cockroachlabs.cloud/api/v1/clusters', {
       method: 'GET',
