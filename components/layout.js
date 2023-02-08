@@ -113,7 +113,7 @@ const Layout = ({ children }) => {
                               return (
                                 <li key={index}>
                                   <ActiveLink
-                                    href={`/clusters/${id}`}
+                                    href={`/cluster/${id}`}
                                     activeClassName="font-bold !text-brand-starfleet-blue"
                                     className="flex gap-3 items-center font-medium px-0 sm:px-3 py-2 text-xs sm:text-sm text-brand-light hover:text-brand-neutral-400"
                                     onClick={handleNav}
