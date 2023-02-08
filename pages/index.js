@@ -105,7 +105,11 @@ const Page = ({ clusters, status }) => {
               key={index}
               className="flex flex-col flex-1 rounded-lg bg-brand-white list-none p-0 m-0 ease-in-out transition-all duration-300 shadow hover:shadow-lg hover:-translate-y-1"
             >
-              <Link href={`/cluster/${id}`} className="group flex flex-col flex-1 gap-4 grow-1 no-underline p-4 sm:p-8">
+              <Link
+                href={`/cluster/${id}`}
+                prefetch={true}
+                className="group flex flex-col flex-1 gap-4 grow-1 no-underline p-4 sm:p-8"
+              >
                 <div className="flex items-center justify-between">
                   <CloudProviderLogo provider={cloud_provider} />
                   <OperationalStatusBadge status={operation_status.split('_').at(-1)} />
