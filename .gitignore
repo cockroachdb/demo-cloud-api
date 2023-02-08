@@ -72,8 +72,6 @@ typings/
 .env
 .env.test
 .env.local
-.env.local.development
-.env.local.production
 .env.development.local
 .env.production.local
 
