@@ -2,8 +2,6 @@ import React, { createContext, useState } from 'react'
 import { useSession } from 'next-auth/react'
 import { useQuery } from '@tanstack/react-query'
 
-const isProd = process.env.NODE_ENV === 'production'
-
 export const AppContext = createContext()
 
 export const AppProvider = ({ children }) => {
