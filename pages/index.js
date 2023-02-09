@@ -198,18 +198,18 @@ export async function getServerSideProps() {
     return {
       props: {
         message: 'A Ok!',
-        // clusters: json.clusters
         clusters: json.clusters
-          .map((cluster) => {
-            return {
-              ...cluster,
-              operation_status:
-                cluster.name === 'cloud-api-demo-basic-doe' || cluster.name === 'cloud-api-demo-whiner-hippo'
-                  ? 'FAILED'
-                  : 'RUNNING'
-            }
-          })
-          .sort((a, b) => a.name.localeCompare(b.name))
+        //   clusters: json.clusters
+        //     .map((cluster) => {
+        //       return {
+        //         ...cluster,
+        //         operation_status:
+        //           cluster.name === 'cloud-api-demo-basic-doe' || cluster.name === 'cloud-api-demo-whiner-hippo'
+        //             ? 'FAILED'
+        //             : 'RUNNING'
+        //       }
+        //     })
+        //     .sort((a, b) => a.name.localeCompare(b.name))
       }
     }
   } catch (error) {

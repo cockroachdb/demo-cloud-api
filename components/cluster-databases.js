@@ -14,7 +14,7 @@ const ClusterDatabases = ({ clusterId }) => {
   const { status: databasesStatus, data: databases } = useQuery({
     queryKey: [`databases-${clusterId}`],
     queryFn: async () => {
-      const response = await fetch(`/api/cloud/databases-by-id?id=${clusterId}`)
+      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/cloud/databases-by-id?id=${clusterId}`)
 
       if (!response.ok) {
         throw new Error('Bad Response')
@@ -29,7 +29,9 @@ const ClusterDatabases = ({ clusterId }) => {
       event.preventDefault()
       const name = event.target.elements.name.value
 
-      const response = await fetch(`/api/cloud/create-database?id=${clusterId}&name=${name}`)
+      const response = await fetch(
+        `${process.env.NEXT_PUBLIC_API_URL}/api/cloud/create-database?id=${clusterId}&name=${name}`
+      )
 
       if (!response.ok) {
         throw new Error('Bad Response')
@@ -45,7 +47,9 @@ const ClusterDatabases = ({ clusterId }) => {
 
   const { status: deleteStatus, mutate: deleteMutate } = useMutation({
     mutationFn: async (name) => {
-      const response = await fetch(`/api/cloud/delete-database?id=${clusterId}&name=${name}`)
+      const response = await fetch(
+        `${process.env.NEXT_PUBLIC_API_URL}/api/cloud/delete-database?id=${clusterId}&name=${name}`
+      )
 
       if (!response.ok) {
         throw new Error('Bad Response')

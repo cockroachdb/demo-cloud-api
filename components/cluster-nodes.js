@@ -11,7 +11,7 @@ const ClusterNodes = ({ clusterId }) => {
   const { status: nodesStatus, data: nodes } = useQuery({
     queryKey: [`nodes-${clusterId}`],
     queryFn: async () => {
-      const response = await fetch(`/api/cloud/nodes-by-id?id=${clusterId}`)
+      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/cloud/nodes-by-id?id=${clusterId}`)
 
       if (!response.ok) {
         throw new Error('Bad Response')

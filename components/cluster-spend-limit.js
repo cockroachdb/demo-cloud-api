@@ -12,7 +12,9 @@ const ClusterSpendLimit = ({ clusterId, spendLimit, callback }) => {
       event.preventDefault()
       const spendLimit = event.target.elements.spendLimit.value
 
-      const response = await fetch(`/api/cloud/update-spend-limit?id=${clusterId}&value=${spendLimit}`)
+      const response = await fetch(
+        `${process.env.NEXT_PUBLIC_API_URL}/api/cloud/update-spend-limit?id=${clusterId}&value=${spendLimit}`
+      )
 
       if (!response.ok) {
         throw new Error('Bad Response')

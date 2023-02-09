@@ -219,13 +219,14 @@ export async function getServerSideProps(context) {
     return {
       props: {
         message: 'A Ok!',
-        cluster: {
-          ...json,
-          operation_status:
-            json.name === 'cloud-api-demo-basic-doe' || json.name === 'cloud-api-demo-whiner-hippo'
-              ? 'FAILED'
-              : 'RUNNING'
-        }
+        cluster: json
+        // cluster: {
+        //   ...json,
+        //   operation_status:
+        //     json.name === 'cloud-api-demo-basic-doe' || json.name === 'cloud-api-demo-whiner-hippo'
+        //       ? 'FAILED'
+        //       : 'RUNNING'
+        // }
       }
     }
   } catch (error) {
