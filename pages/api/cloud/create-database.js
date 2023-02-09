@@ -6,6 +6,8 @@ export default async function (req, res) {
 
   const { query } = req
 
+  res.setHeader('Access-Control-Allow-Origin', '*')
+
   if (session?.user.admin) {
     try {
       const response = await fetch(`https://cockroachlabs.cloud/api/v1/clusters/${query.id}/databases`, {
