@@ -13,7 +13,7 @@ const ClusterSpendLimit = ({ clusterId, spendLimit, callback }) => {
       const spendLimit = event.target.elements.spendLimit.value
 
       const response = await fetch(
-        `${process.env.NEXT_PUBLIC_API_URL}/api/cloud/update-spend-limit?id=${clusterId}&value=${spendLimit}`
+        `${process.env.NEXT_PUBLIC_ASSET_PREFIX}/api/cloud/update-spend-limit?id=${clusterId}&value=${spendLimit}`
       )
 
       if (!response.ok) {

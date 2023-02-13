@@ -12,7 +12,7 @@ import '../styles/globals.css'
 const queryClient = new QueryClient()
 
 const App = ({ Component, pageProps: { session, ...pageProps } }) => {
-  const cdnUrl = process.env.NEXT_PUBLIC_API_URL
+  const cdnUrl = process.env.NEXT_PUBLIC_ASSET_PREFIX
   const seoTitle = 'Demo Cloud API'
   const seoDescription = 'A CockroachDB Cloud API Demo Application'
   const seoImage = 'open-graph-image.jpg'

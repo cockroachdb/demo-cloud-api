@@ -11,7 +11,7 @@ export const AppProvider = ({ children }) => {
   const { status, data: clusters } = useQuery({
     queryKey: ['clusters'],
     queryFn: async () => {
-      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/cloud/all-clusters`)
+      const response = await fetch(`${process.env.NEXT_PUBLIC_ASSET_PREFIX}/api/cloud/all-clusters`)
 
       if (!response.ok) {
         throw new Error('Bad Response')
