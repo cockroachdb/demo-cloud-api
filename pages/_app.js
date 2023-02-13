@@ -49,7 +49,7 @@ const App = ({ Component, pageProps: { session, ...pageProps } }) => {
         <link rel="icon" type="image/png" sizes="16x16" href={`${cdnUrl}/favicon-16x16.png`} data-react-helmet="true" />
         <link rel="icon" type="image/png" sizes="32x32" href={`${cdnUrl}/favicon-32x32.png`} data-react-helmet="true" />
       </Head>
-      <SessionProvider session={session}>
+      <SessionProvider session={session} basePath={`${process.env.NEXT_PUBLIC_ASSET_PREFIX}/api/auth`}>
         <QueryClientProvider client={queryClient}>
           {getLayout(
             <AppProvider>
