@@ -69,16 +69,12 @@ const DonutChart = ({ statuses }) => {
           <linearGradient id="divider" x1="0" x2="0" y1="0" y2="1">
             <stop
               offset="0%"
-              className="[--start-color:theme(colors.brand.narwhal-gray)]"
+              className="[--start-color:var(--color-brand-narwhal-gray)]"
               stopColor="var(--start-color)"
             />
-            <stop
-              offset="20%"
-              className="[--mid-color:theme(colors.brand.narwhal-gray)]"
-              stopColor="var(--mid-color)"
-            />
-            <stop offset="21%" className="[--end-color:theme(colors.transparent)]" stopColor="var(--end-color)" />
-            <stop offset="100%" className="[--end-color:theme(colors.transparent)]" stopColor="var(--end-color)" />
+            <stop offset="20%" className="[--mid-color:var(--color-brand-narwhal-gray)]" stopColor="var(--mid-color)" />
+            <stop offset="21%" className="[--end-color:var(--color-transparent)]" stopColor="var(--end-color)" />
+            <stop offset="100%" className="[--end-color:var(--color-transparent)]" stopColor="var(--end-color)" />
           </linearGradient>
         </defs>
 
