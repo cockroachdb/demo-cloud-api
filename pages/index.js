@@ -69,7 +69,7 @@ const Page = ({ clusters, status }) => {
 
         <li className="flex flex-col flex-1 rounded-lg bg-brand-narwhal-grey list-none p-0 m-0 border border-gray-400">
           <article className=" flex flex-col flex-1 p-4 sm:p-8">
-            <div className="flex flex-col flex-1 gap-2 py-4 place-content-center">
+            <div className="flex flex-col flex-1 gap-2 py-4 place-content-center mx-auto max-w-[220px]">
               <DonutChart statuses={clusters.map((cluster) => cluster.operation_status.split('_').at(-1))} />
             </div>
 
@@ -194,18 +194,16 @@ export async function getServerSideProps() {
     return {
       props: {
         message: 'A Ok!',
+        // clusters: json.clusters
+        // Temporary until API can return RUNNING of FAILED
         clusters: json.clusters
-        //   clusters: json.clusters
-        //     .map((cluster) => {
-        //       return {
-        //         ...cluster,
-        //         operation_status:
-        //           cluster.name === 'cloud-api-demo-basic-doe' || cluster.name === 'cloud-api-demo-whiner-hippo'
-        //             ? 'FAILED'
-        //             : 'RUNNING'
-        //       }
-        //     })
-        //     .sort((a, b) => a.name.localeCompare(b.name))
+          .map((cluster, index) => {
+            return {
+              ...cluster,
+              operation_status: index % 2 ? 'FAILED' : 'RUNNING'
+            }
+          })
+          .sort((a, b) => a.name.localeCompare(b.name))
       }
     }
   } catch (error) {
