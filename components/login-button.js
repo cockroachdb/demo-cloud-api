@@ -63,7 +63,7 @@ const LoginButton = ({ session, signIn, signOut }) => {
         <button
           aria-label="Sign in"
           className="bg-transparent border border-brand-starfleet-blue text-brand-starfleet-blue flex gap-1 items-center justify-center"
-          onClick={() => signIn()}
+          onClick={() => signIn('github')}
         >
           <GitHubLogo />
           Sign in

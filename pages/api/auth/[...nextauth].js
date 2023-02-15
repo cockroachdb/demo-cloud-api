@@ -10,16 +10,16 @@ export default async function auth(req, res) {
       })
     ],
     callbacks: {
-      async signIn({ user, account, profile, email, credentials }) {
-        console.log('signIn | url: ', url)
-        console.log('signIn | baseUrl: ', baseUrl)
-        return true
-      },
-      async redirect({ url, baseUrl }) {
-        console.log('redirect | url: ', url)
-        console.log('redirect | baseUrl: ', baseUrl)
-        return baseUrl
-      },
+      // async signIn({ user, account, profile, email, credentials }) {
+      //   console.log('signIn | url: ', url)
+      //   console.log('signIn | baseUrl: ', baseUrl)
+      //   return true
+      // },
+      // async redirect({ url, baseUrl }) {
+      //   console.log('redirect | url: ', url)
+      //   console.log('redirect | baseUrl: ', baseUrl)
+      //   return baseUrl
+      // },
       session({ session }) {
         session.user.admin = session.user.email === process.env.GITHUB_ADMIN_EMAIL ? true : false
         return session

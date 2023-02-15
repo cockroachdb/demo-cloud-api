@@ -194,7 +194,7 @@ const Layout = ({ children }) => {
                             <button
                               aria-label="Sign in"
                               className="text-xs sm:text-sm bg-transparent border border-brand-starfleet-blue text-brand-starfleet-blue flex gap-2 items-center justify-center w-full"
-                              onClick={() => signIn()}
+                              onClick={() => signIn('github')}
                             >
                               <GitHubLogo />
                               Sign in
