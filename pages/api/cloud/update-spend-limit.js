@@ -6,7 +6,7 @@ export default async function (req, res) {
 
   const { query } = req
 
-  if (session?.user.admin) {
+  if (session?.user.email === process.env.GITHUB_ADMIN_EMAIL) {
     try {
       const response = await fetch(
         `https://cockroachlabs.cloud/api/v1/clusters/${query.id}?field_mask=serverless.spend_limit`,
