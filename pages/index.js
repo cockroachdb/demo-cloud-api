@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react'
 import Link from 'next/link'
-import { getInfo } from 'cloud-regions-country-flags'
+import { fromProvider } from 'cloud-regions-country-flags'
 
 import ErrorAnnounce from '../components/error-announce'
 import Heartbeat from '../components/heartbeat'
@@ -127,7 +127,7 @@ const Page = ({ clusters, status }) => {
 
                         return (
                           <li key={index} className="flex items-center gap-1 text-xs p-0 m-0">
-                            <span className="mt-0.5">{getInfo(name, cluster.cloud_provider).flag}</span>
+                            <span className="mt-0.5">{fromProvider(name, cluster.cloud_provider).flag}</span>
                             <span>{name}</span>
                           </li>
                         )
