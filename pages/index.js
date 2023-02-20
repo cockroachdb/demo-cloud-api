@@ -194,16 +194,16 @@ export async function getServerSideProps() {
     return {
       props: {
         message: 'A Ok!',
-        // clusters: json.clusters
-        // Temporary until API can return RUNNING of FAILED
         clusters: json.clusters
-          .map((cluster, index) => {
-            return {
-              ...cluster,
-              operation_status: index % 2 ? 'FAILED' : 'RUNNING'
-            }
-          })
-          .sort((a, b) => a.name.localeCompare(b.name))
+        // Temporary until API can return RUNNING of FAILED
+        // clusters: json.clusters
+        //   .map((cluster, index) => {
+        //     return {
+        //       ...cluster,
+        //       operation_status: index % 2 ? 'FAILED' : 'RUNNING'
+        //     }
+        //   })
+        //   .sort((a, b) => a.name.localeCompare(b.name))
       }
     }
   } catch (error) {
