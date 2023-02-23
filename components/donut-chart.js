@@ -1,13 +1,13 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-const DonutChart = ({ statuses }) => {
+const DonutChart = ({ states }) => {
   const getColor = (string) => {
     switch (string) {
-      case 'RUNNING':
+      case 'CREATED':
         return 'var(--color-green-500)'
 
-      case 'FAILED':
+      case 'LOCKED':
         return 'var(--color-red-500)'
 
       default:
@@ -15,18 +15,18 @@ const DonutChart = ({ statuses }) => {
     }
   }
 
-  const incrementAngle = 360 / statuses.length
-  const colors = statuses.map((status) => `${getColor(status)}`)
-  const angles = new Array(statuses.length).fill().map((_, index) => `${incrementAngle * index}deg`)
+  const incrementAngle = 360 / states.length
+  const colors = states.map((state) => `${getColor(state)}`)
+  const angles = new Array(states.length).fill().map((_, index) => `${incrementAngle * index}deg`)
 
-  const total_value = statuses.reduce((a, b) => a + 1, 0)
+  const total_value = states.reduce((a, b) => a + 1, 0)
   const convertToPercent = (num) => Math.round((num / total_value) * 100)
   const convertToDegrees = (num) => Math.round((num / 100) * 360)
 
-  const css_string = statuses
-    .map((status) => {
+  const css_string = states
+    .map((state) => {
       return {
-        name: status,
+        name: state,
         value: 1
       }
     })
@@ -54,7 +54,7 @@ const DonutChart = ({ statuses }) => {
     <div className="relative flex-1 mx-auto">
       <div className="absolute flex items-center justify-center rounded-full bg-brand-narwhal-grey w-4/6 h-4/6 top-[50%] left-[50%] -translate-x-1/2 -translate-y-1/2">
         <div className="mb-3 leading-none">
-          <strong className="block font-black text-2xl text-center text-brand-starfleet-blue">Status</strong>
+          <strong className="block font-black text-2xl text-center text-brand-starfleet-blue">State</strong>
           <small className="flex gap-2 items-center text-xxs text-center text-brand-light">
             <span className="relative h-2 w-2">
               <span className="absolute w-full h-full rounded-full bg-brand-starfleet-blue motion-safe:animate-ping "></span>
@@ -90,7 +90,7 @@ const DonutChart = ({ statuses }) => {
             }}
           />
         </foreignObject>
-        {statuses.map((_, index) => {
+        {states.map((_, index) => {
           return (
             <rect
               key={index}
@@ -112,8 +112,8 @@ const DonutChart = ({ statuses }) => {
 }
 
 DonutChart.propTypes = {
-  /** Trimmed string of types of operational_status from /api/v1/clusters */
-  statuses: PropTypes.arrayOf(PropTypes.oneOf(['UNSPECIFIED', 'RUNNING', 'FAILED'])).isRequired
+  /** Trimmed string of types of state from /api/v1/clusters */
+  states: PropTypes.arrayOf(PropTypes.oneOf(['UNSPECIFIED', 'CREATED', 'LOCKED'])).isRequired
 }
 
 export default DonutChart

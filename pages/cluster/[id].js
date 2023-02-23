@@ -4,7 +4,7 @@ import { useRouter } from 'next/router'
 import { fromProvider } from 'cloud-regions-country-flags'
 
 import ErrorAnnounce from '../../components/error-announce'
-import OperationalStatusBadge from '../../components/operational-status-badge'
+import StateBadge from '../../components/state-badge'
 import Underline from '../../components/underline'
 import Particles from '../../components/particles'
 import ClusterPanel from '../../components/cluster-panel'
@@ -67,11 +67,7 @@ const Page = ({ cluster, status }) => {
           <div className="relative flex flex-col gap-2 z-10">
             <strong className="block text-brand-light font-black text-4xl text-center">{cluster.name}</strong>
             <Underline />
-            <OperationalStatusBadge
-              size="lg"
-              status={cluster.operation_status.split('_').at(-1)}
-              className="self-center"
-            />
+            <StateBadge size="lg" state={cluster.state.split('_').at(-1)} className="self-center" />
           </div>
           <div className="grid xl:grid-cols-3 gap-4 sm:gap-6 z-10">
             <ClusterPanel
@@ -220,13 +216,6 @@ export async function getServerSideProps(context) {
       props: {
         message: 'A Ok!',
         cluster: json
-        // cluster: {
-        //   ...json,
-        //   operation_status:
-        //     json.name === 'cloud-api-demo-basic-doe' || json.name === 'cloud-api-demo-whiner-hippo'
-        //       ? 'FAILED'
-        //       : 'RUNNING'
-        // }
       }
     }
   } catch (error) {

@@ -1,20 +1,21 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-const OperationalStatusBadge = ({ status, size, className }) => {
+const StateBadge = ({ state, size, className }) => {
   const getColor = (string) => {
     switch (string) {
+      case 'UNSPECIFIED':
+        return 'bg-gray-50 border-gray-500 text-gray-800'
+
+      case 'CREATED':
+        return 'bg-green-50 border-green-500 text-green-800'
+
       case 'LIVE':
         return 'bg-green-50 border-green-500 text-green-800'
 
-      case 'RUNNING':
-        return 'bg-green-50 border-green-500 text-green-800'
-
-      case 'FAILED':
+      case 'LOCKED':
         return 'bg-red-50 border-red-500 text-red-800'
 
-      case 'NOT_READY':
-        return 'bg-gray-50 border-gray-500 text-gray-800'
       default:
         return 'bg-gray-50 border-gray-500 text-gray-800'
     }
@@ -24,24 +25,24 @@ const OperationalStatusBadge = ({ status, size, className }) => {
     <span
       className={`flex items-center ${
         size === 'lg' ? 'h-6 p-2 text-xs' : 'h-5 p-2 text-xxs'
-      } font-bold rounded border ${getColor(status)} ${className}`}
+      } font-bold rounded border ${getColor(state)} ${className}`}
     >
-      {status}
+      {state}
     </span>
   )
 }
 
-OperationalStatusBadge.defaultProps = {
+StateBadge.defaultProps = {
   size: 'sm'
 }
 
-OperationalStatusBadge.propTypes = {
-  /** Trimmed string of types of operational_status from /api/v1/clusters */
-  status: PropTypes.oneOf(['UNSPECIFIED', 'RUNNING', 'FAILED', 'LIVE']).isRequired,
+StateBadge.propTypes = {
+  /** Trimmed string of types of state from /api/v1/clusters */
+  state: PropTypes.oneOf(['UNSPECIFIED', 'CREATED', 'LOCKED', 'LIVE']).isRequired,
   /** The size of the chip */
   size: PropTypes.oneOf(['sm', 'lg']),
   /** The class names to apply */
   className: PropTypes.string
 }
 
-export default OperationalStatusBadge
+export default StateBadge

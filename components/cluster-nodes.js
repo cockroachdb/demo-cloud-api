@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 
 import { useQuery } from '@tanstack/react-query'
 
-import OperationalStatusBadge from './operational-status-badge'
+import StateBadge from './state-badge'
 import ErrorAnnounce from './error-announce'
 import Loading from './loading'
 
@@ -58,13 +58,12 @@ const ClusterNodes = ({ clusterId }) => {
                 <tbody>
                   {nodes.data.map((node, index) => {
                     const { name, region_name, status } = node
+
                     return (
                       <tr key={index} className="odd:bg-brand-gray-f4 font-medium">
                         <td className="whitespace-nowrap font-bold p-2">{name}</td>
                         <td className="whitespace-nowrap p-2">{region_name}</td>
-                        <td className="whitespace-nowrap flex p-2 justify-end">
-                          <OperationalStatusBadge status={status} />
-                        </td>
+                        <td className="whitespace-nowrap flex p-2 justify-end">{<StateBadge state={status} />}</td>
                       </tr>
                     )
                   })}

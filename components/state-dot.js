@@ -1,13 +1,13 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-const OperationalStatusDot = ({ status }) => {
+const StateDot = ({ state }) => {
   const getColor = (string) => {
     switch (string) {
-      case 'RUNNING':
+      case 'CREATED':
         return 'text-green-500'
 
-      case 'FAILED':
+      case 'LOCKED':
         return 'text-red-500'
 
       default:
@@ -20,16 +20,16 @@ const OperationalStatusDot = ({ status }) => {
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 24 24"
       fill="currentColor"
-      className={`w-2 h-2 mt-0.5 ${getColor(status)}`}
+      className={`w-2 h-2 mt-0.5 ${getColor(state)}`}
     >
       <circle cx="12" cy="12" r="12" />
     </svg>
   )
 }
 
-OperationalStatusDot.propTypes = {
-  /** Trimmed string of types of operational_status from /api/v1/clusters */
-  status: PropTypes.oneOf(['UNSPECIFIED', 'RUNNING', 'FAILED']).isRequired
+StateDot.propTypes = {
+  /** Trimmed string of types of state from /api/v1/clusters */
+  state: PropTypes.oneOf(['UNSPECIFIED', 'CREATED', 'FAILED']).isRequired
 }
 
-export default OperationalStatusDot
+export default StateDot

@@ -5,8 +5,8 @@ import { fromProvider } from 'cloud-regions-country-flags'
 import ErrorAnnounce from '../components/error-announce'
 import Heartbeat from '../components/heartbeat'
 import Particles from '../components/particles'
-import OperationalStatusBadge from '../components/operational-status-badge'
-import OperationalStatusDot from '../components/operational-status-dot'
+import StateBadge from '../components/state-badge'
+import StateDot from '../components/state-dot'
 import CloudProviderLogo from '../components/cloud-provider-logo'
 import DonutChart from '../components/donut-chart'
 
@@ -70,24 +70,24 @@ const Page = ({ clusters, status }) => {
         <li className="flex flex-col flex-1 rounded-lg bg-brand-narwhal-grey list-none p-0 m-0 border border-gray-400">
           <article className=" flex flex-col flex-1 p-4 sm:p-8">
             <div className="flex flex-col flex-1 gap-2 py-4 place-content-center mx-auto max-w-[220px]">
-              <DonutChart statuses={clusters.map((cluster) => cluster.operation_status.split('_').at(-1))} />
+              <DonutChart states={clusters.map((cluster) => cluster.state.split('_').at(-1))} />
             </div>
 
             <hr className="mx-auto my-8 w-full sm:w-11/12 border-brand-hidden-sapphire" />
 
             <ul className="list-none flex flex-col gap-2 p-0 sm:px-5 py-0 m-0">
               {clusters.map((cluster, index) => {
-                const { name, operation_status } = cluster
+                const { name, state } = cluster
 
-                const statusString = operation_status.split('_').at(-1)
+                const stateString = state.split('_').at(-1)
 
                 return (
                   <li key={index} className="flex items-center justify-between h-6 text-sm p-0 m-0">
                     <span className="flex gap-2 items-center text-brand-light">
-                      <OperationalStatusDot status={statusString} />
+                      <StateDot state={stateString} />
                       {name}
                     </span>
-                    <OperationalStatusBadge status={statusString} />
+                    <StateBadge state={stateString} />
                   </li>
                 )
               })}
@@ -98,7 +98,7 @@ const Page = ({ clusters, status }) => {
 
       <ul className="grid xl:grid-cols-2 gap-6 lg:gap-8 list-none p-0 m-0">
         {clusters.map((cluster, index) => {
-          const { id, name, plan, cockroach_version, operation_status, cloud_provider, config, regions } = cluster
+          const { id, name, plan, cockroach_version, state, cloud_provider, config, regions } = cluster
 
           return (
             <li
@@ -108,7 +108,7 @@ const Page = ({ clusters, status }) => {
               <Link href={`/cluster/${id}`} className="group flex flex-col flex-1 gap-4 grow-1 no-underline p-4 sm:p-8">
                 <div className="flex items-center justify-between">
                   <CloudProviderLogo provider={cloud_provider} />
-                  <OperationalStatusBadge status={operation_status.split('_').at(-1)} />
+                  <StateBadge state={state.split('_').at(-1)} />
                 </div>
 
                 <div>
@@ -195,15 +195,6 @@ export async function getServerSideProps() {
       props: {
         message: 'A Ok!',
         clusters: json.clusters
-        // Temporary until API can return RUNNING of FAILED
-        // clusters: json.clusters
-        //   .map((cluster, index) => {
-        //     return {
-        //       ...cluster,
-        //       operation_status: index % 2 ? 'FAILED' : 'RUNNING'
-        //     }
-        //   })
-        //   .sort((a, b) => a.name.localeCompare(b.name))
       }
     }
   } catch (error) {
