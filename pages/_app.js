@@ -15,7 +15,7 @@ const App = ({ Component, pageProps: { session, ...pageProps } }) => {
   const cdnUrl = process.env.NEXT_PUBLIC_CDN_URL // with trailing slash
   const seoTitle = 'Demo Cloud API'
   const seoDescription = 'A CockroachDB Cloud API Demo Application'
-  const seoImage = 'open-graph-image.jpg'
+  const seoImage = 'cloud-api-demo-open-graph-image.jpg'
 
   const getLayout = Component.getLayout || ((page) => page)
 
