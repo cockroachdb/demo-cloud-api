@@ -17,16 +17,16 @@ import NewsletterForm from '../components/newsletter-form'
 
 const links = [
   {
-    name: 'cockroachlabs.com',
-    url: 'https://www.cockroachlabs.com/'
+    name: 'What Is the CockroachDB Cloud API?',
+    url: 'https://www.cockroachlabs.com/blog/what-is-the-cockroachdb-cloud-api/'
   },
   {
-    name: '/docs/api/cloud/v1',
+    name: 'CockroachDB Cloud API Documentation',
     url: 'https://www.cockroachlabs.com/docs/api/cloud/v1.html#overview'
   },
   {
-    name: '/blog',
-    url: 'https://www.cockroachlabs.com/blog/'
+    name: 'Cockroach Labs',
+    url: 'https://www.cockroachlabs.com/'
   }
 ]
 
@@ -160,7 +160,7 @@ const Layout = ({ children }) => {
                                     href={url}
                                     target="_blank"
                                     rel="noopener"
-                                    className="flex gap-3 items-center font-medium px-0 sm:px-3 py-2 text-xs sm:text-sm text-brand-light hover:text-brand-neutral-400"
+                                    className="flex gap-3 items-center font-medium px-0 sm:px-3 py-2 text-xs text-brand-light hover:text-brand-neutral-400"
                                   >
                                     <svg
                                       xmlns="http://www.w3.org/2000/svg"

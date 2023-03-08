@@ -30,7 +30,7 @@ const NewsletterForm = ({ formId }) => {
 
   return (
     <section className="bg-brand-white rounded shadow px-4 py-8 sm:p-8">
-      <div className="flex flex-col mx-auto md:max-w-md gap-1">
+      <div className="flex flex-col mx-auto md:max-w-lg gap-1">
         <strong className="flex gap-2 items-center justify-center font-bold text-lg text-brand-hidden-sapphire">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -47,12 +47,12 @@ const NewsletterForm = ({ formId }) => {
               d="M9 3.75H6.912a2.25 2.25 0 00-2.15 1.588L2.35 13.177a2.25 2.25 0 00-.1.661V18a2.25 2.25 0 002.25 2.25h15A2.25 2.25 0 0021.75 18v-4.162c0-.224-.034-.447-.1-.661L19.24 5.338a2.25 2.25 0 00-2.15-1.588H15M2.25 13.5h3.86a2.25 2.25 0 012.012 1.244l.256.512a2.25 2.25 0 002.013 1.244h3.218a2.25 2.25 0 002.013-1.244l.256-.512a2.25 2.25 0 012.013-1.244h3.859M12 3v8.25m0 0l-3-3m3 3l3-3"
             />
           </svg>
-          Newsletter
+          CockroachDB Newsletter
         </strong>
         <small className="text-center text-sm text-brand-hidden-saphire m-0">
-          Latest CockroachDB news - blogs - webinars - videos <br /> and what we're reading.
+          The latest news, blogs, webinars, videos and what we're reading.
         </small>
-        <div className="w-full">
+        <div className="w-full pt-4">
           <form onSubmit={handleSubmit} className="flex gap-2 items-end">
             <label className="flex flex-col gap-1 grow text-xs text-gray-600 font-medium">
               <span className="after:content-['*'] after:mt-0.5 after:text-red-500 flex gap-1 grow text-xs text-gray-600 font-medium">
