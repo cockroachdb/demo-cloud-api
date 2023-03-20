@@ -17,9 +17,5 @@ export const authOptions = {
 }
 
 export default (req, res) => {
-  if (process.env.VERCEL) {
-    // prefer NEXTAUTH_URL, fallback to x-forwarded-host
-    req.headers['x-forwarded-host'] = process.env.NEXTAUTH_URL || req.headers['x-forwarded-host']
-  }
   return NextAuth(req, res, authOptions) // eslint-disable-line new-cap
 }
