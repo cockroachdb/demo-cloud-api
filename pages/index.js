@@ -1,5 +1,6 @@
 import React, { Fragment } from 'react'
 import Link from 'next/link'
+import { useRouter } from 'next/router'
 import { fromProvider } from 'cloud-regions-country-flags'
 
 import ErrorAnnounce from '../components/error-announce'
@@ -11,6 +12,12 @@ import CloudProviderLogo from '../components/cloud-provider-logo'
 import DonutChart from '../components/donut-chart'
 
 const Page = ({ clusters, status }) => {
+  const router = useRouter()
+  console.log(router.query)
+  if (router.query.code && router.query.state) {
+    router.replace('/', undefined, { shallow: true })
+  }
+
   if (status === 'error') return <ErrorAnnounce />
 
   return (
