@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react'
+import React, { Fragment, useEffect } from 'react'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { fromProvider } from 'cloud-regions-country-flags'
@@ -13,10 +13,12 @@ import DonutChart from '../components/donut-chart'
 
 const Page = ({ clusters, status }) => {
   const router = useRouter()
-  console.log(router.query)
-  if (router.query.code && router.query.state) {
-    router.replace('/', undefined, { shallow: true })
-  }
+
+  useEffect(() => {
+    if (router.query.code && router.query.state) {
+      router.replace('/', undefined, { shallow: true })
+    }
+  }, [])
 
   if (status === 'error') return <ErrorAnnounce />
 
