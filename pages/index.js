@@ -169,7 +169,9 @@ const Page = ({ clusters, status }) => {
                   </div>
                   <div>
                     <small className="block text-gray-600 text-xs">Version</small>
-                    <strong className="block text-xs">{cockroach_version}</strong>
+                    <strong className="block text-xs">
+                      {cockroach_version.replace(/(?<=-alpha)\.0+|(?<=-alpha)\./, '')}
+                    </strong>
                   </div>
                 </div>
 
