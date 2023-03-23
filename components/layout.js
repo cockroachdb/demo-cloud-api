@@ -17,7 +17,7 @@ import NewsletterForm from '../components/newsletter-form'
 
 const links = [
   {
-    name: 'What Is the CockroachDB Cloud API?',
+    name: 'What Is the CockroachDB Cloud API and Why You Should Use It?',
     url: 'https://www.cockroachlabs.com/blog/what-is-the-cockroachdb-cloud-api/'
   },
   {

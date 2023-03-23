@@ -26,7 +26,7 @@ const Banner = () => {
         rel="noopener"
         className=" hover:text-brand-electric-purple"
       >
-        What is the CockroachDB Cloud API?
+        What Is the CockroachDB Cloud API and Why You Should Use It?
       </a>
     </aside>
   )
