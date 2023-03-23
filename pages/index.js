@@ -10,6 +10,7 @@ import StateBadge from '../components/state-badge'
 import StateDot from '../components/state-dot'
 import CloudProviderLogo from '../components/cloud-provider-logo'
 import DonutChart from '../components/donut-chart'
+import Banner from '../components/banner'
 
 const Page = ({ clusters, status }) => {
   const router = useRouter()
@@ -24,6 +25,7 @@ const Page = ({ clusters, status }) => {
 
   return (
     <section className="grid gap-6 lg:gap-8">
+      <Banner />
       <ul className="grid xl:grid-cols-2 gap-6 lg:gap-8 list-none p-0 m-0">
         <li className="relative flex flex-col flex-1 rounded-lg bg-brand-narwhal-grey list-none p-0 m-0 border border-gray-400">
           <Particles className="absolute top-0 left-0 bottom-[50%] w-full h-[300px] z-0" />
