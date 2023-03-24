@@ -111,6 +111,11 @@ const Page = ({ clusters, status }) => {
         {clusters.map((cluster, index) => {
           const { id, name, plan, cockroach_version, state, cloud_provider, config, regions } = cluster
 
+          const [prefix, suffix] = cockroach_version.split('-')
+          const cleanedSuffix = suffix ? `-${suffix.replace(/\.|-|\d+/g, '')}` : ''
+
+          const cockroach_version_clean = `${prefix}${cleanedSuffix}`
+
           return (
             <li
               key={index}
@@ -169,10 +174,7 @@ const Page = ({ clusters, status }) => {
                   </div>
                   <div>
                     <small className="block text-gray-600 text-xs">Version</small>
-                    <strong className="block text-xs">
-                      {cockroach_version}
-                      {/* {cockroach_version.replace(/(?<=-alpha)\.0+|(?<=-alpha)\./, '')} */}
-                    </strong>
+                    <strong className="block text-xs">{cockroach_version_clean}</strong>
                   </div>
                 </div>
 
