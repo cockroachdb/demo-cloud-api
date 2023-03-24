@@ -2,7 +2,7 @@ import React from 'react'
 
 const Banner = () => {
   return (
-    <aside className="flex flex-col items-center sm:flex-row text-center sm:text-left bg-white p-4 rounded shadow text-xs text-brand-hidden-sapphire gap-1 border-t-4 border-t-brand-electric-purple  sm:border-t-0 sm:border-l-4 sm:border-l-brand-electric-purple">
+    <aside className="flex flex-col items-center md:flex-row text-center sm:text-left bg-white p-4 rounded shadow text-xs text-brand-hidden-sapphire gap-1 border-t-4 border-t-brand-electric-purple md:border-t-0 sm:border-l-4 md:border-l-brand-electric-purple">
       <span className="flex justify-center sm:justify-left gap-1">
         <svg
           xmlns="http://www.w3.org/2000/svg"
