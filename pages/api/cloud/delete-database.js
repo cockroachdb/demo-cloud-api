@@ -6,7 +6,7 @@ export default async function (req, res) {
 
   const { query } = req
 
-  if (session?.user.email === process.env.GITHUB_ADMIN_EMAIL) {
+  if (process.env.GITHUB_ADMIN_EMAIL.split(',').some((email) => email === session?.user.email)) {
     try {
       const response = await fetch(`https://cockroachlabs.cloud/api/v1/clusters/${query.id}/databases/${query.name}`, {
         method: 'DELETE',
