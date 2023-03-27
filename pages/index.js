@@ -210,7 +210,7 @@ export async function getServerSideProps() {
     return {
       props: {
         message: 'A Ok!',
-        clusters: json.clusters.filter((d) => (d.name.includes('cloud-api-demo') ? true : false))
+        clusters: json.clusters.filter((d) => (d.name.includes(process.env.NEXT_PUBLIC_CLUSTER_FILTER) ? true : false))
       }
     }
   } catch (error) {

@@ -21,7 +21,7 @@ export const AppProvider = ({ children }) => {
 
       return {
         message: json.message,
-        data: json.data.filter((d) => (d.name.includes('cloud-api-demo') ? true : false))
+        data: json.data.filter((d) => (d.name.includes(process.env.NEXT_PUBLIC_CLUSTER_FILTER) ? true : false))
       }
     }
   })
