@@ -22,6 +22,11 @@ const Page = ({ cluster, status }) => {
 
   if (status === 'error') return <ErrorAnnounce />
 
+  const [prefix, suffix] = cluster.cockroach_version.split('-')
+  const cleanedSuffix = suffix ? `-${suffix.replace(/\.|-|\d+/g, '')}` : ''
+
+  const cockroach_version_clean = `${prefix}${cleanedSuffix}`
+
   return (
     <Fragment>
       <section className="flex flex-col gap-6 xl:gap-8 items-start">
@@ -34,7 +39,7 @@ const Page = ({ cluster, status }) => {
             fill="currentColor"
             viewBox="0 0 24 24"
             className="w-4 h-4"
-            araia-label="Back icon"
+            aria-label="Back icon"
           >
             <path
               d="M6.75,10.42c-.42-.42-.42-1.1,0-1.52L13.19,2.46c.42-.42,1.1-.42,1.52,0s.42,1.1,0,1.52l-4.61,4.61h12.73c.59,0,1.07,.48,1.07,1.07s-.49,1.07-1.07,1.07H10.1l4.61,4.61c.42,.42,.42,1.1,0,1.52s-1.1,.42-1.52,0l-6.44-6.44Z"
@@ -128,7 +133,7 @@ const Page = ({ cluster, status }) => {
                 },
                 {
                   label: 'Version',
-                  value: cluster.cockroach_version
+                  value: cockroach_version_clean
                 },
                 {
                   label: 'Cloud',

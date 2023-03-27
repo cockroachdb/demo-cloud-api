@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react'
 import PropTypes from 'prop-types'
 
-const ClusterPanel = ({ title, paths, properties, component }) => {
+const ClusterPanel = ({ title, paths, properties }) => {
   return (
     <article className="flex flex-col  gap-2 border border-brand-ocean-green p-4 rounded-b-lg xl:rounded-b-none sm:rounded-t-lg bg-gradient-radial from-brand-ocean-green to-brand-narwhal-grey">
       <strong className="flex gap-2 items-center font-bold text-brand-light">
