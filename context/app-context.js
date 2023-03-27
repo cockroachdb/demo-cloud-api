@@ -17,7 +17,12 @@ export const AppProvider = ({ children }) => {
         throw new Error('Bad Response')
       }
 
-      return response.json()
+      const json = await response.json()
+
+      return {
+        message: json.message,
+        data: json.data.filter((d) => (d.name.includes('cloud-api-demo') ? true : false))
+      }
     }
   })
 
