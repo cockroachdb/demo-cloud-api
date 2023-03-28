@@ -4,8 +4,10 @@ import PropTypes from 'prop-types'
 import * as DropdownMenu from '@radix-ui/react-dropdown-menu'
 
 import GitHubLogo from './github-logo'
+import TickIcon from './tick-icon'
+import XIcon from './x-icon'
 
-const LoginButton = ({ session, signIn, signOut }) => {
+const LoginButton = ({ session, signIn, signOut, admin }) => {
   if (session) {
     return (
       <ul className="flex justify-end hidden lg:block">
@@ -40,7 +42,19 @@ const LoginButton = ({ session, signIn, signOut }) => {
                   </span>
                   <strong className="block text-center font-bold text-lg">{session.user.name}</strong>
                 </DropdownMenu.Item>
-                <DropdownMenu.Separator className="w-full h-px my-4 bg-brand-neutral-400" />
+                <DropdownMenu.Separator className="w-full h-px my-4 bg-gray-200" />
+                <DropdownMenu.Item disabled>
+                  <div className="flex flex-col gap-1">
+                    <div className="flex gap-1 text-xs text-green-600">
+                      <TickIcon /> Authenticated
+                    </div>
+                    <div className={`flex gap-1 text-xs ${admin ? 'text-green-600' : 'text-red-600'}`}>
+                      {admin ? <TickIcon /> : <XIcon />} Authorized
+                    </div>
+                  </div>
+                </DropdownMenu.Item>
+
+                <DropdownMenu.Separator className="w-full h-px my-4 bg-gray-200" />
                 <DropdownMenu.Item asChild>
                   <button
                     aria-label="Sign out"
@@ -87,7 +101,9 @@ LoginButton.propTypes = {
   /** next-auth sign in function */
   signIn: PropTypes.func.isRequired,
   /** next-auth sign out function */
-  signOut: PropTypes.func.isRequired
+  signOut: PropTypes.func.isRequired,
+  /** Status of admin from content */
+  admin: PropTypes.bool.isRequired
 }
 
 export default LoginButton

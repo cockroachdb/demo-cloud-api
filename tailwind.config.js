@@ -9,7 +9,10 @@ module.exports = {
     //
     // These are for the logo
     'fill-brand-deep-purple',
-    'fill-brand-light'
+    'fill-brand-light',
+    // These are for the Login button
+    'text-green-600',
+    'text-red-600'
   ],
   theme: {
     extend: {

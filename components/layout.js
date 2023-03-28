@@ -36,7 +36,7 @@ const Layout = ({ children }) => {
   return (
     <Fragment>
       <AppContext.Consumer>
-        {({ isNavOpen, handleNav, status, clusters }) => {
+        {({ isNavOpen, handleNav, status, clusters, admin }) => {
           return (
             <Fragment>
               <header className="fixed flex items-center bg-white w-full px-4 shadow z-30 h-16">
@@ -47,7 +47,7 @@ const Layout = ({ children }) => {
                   <button onClick={handleNav} className="w-auto min-w-0 block p-1 border-none lg:hidden">
                     <MenuIcons isNavOpen={isNavOpen} />
                   </button>
-                  <LoginButton session={session} signIn={signIn} signOut={signOut} />
+                  <LoginButton session={session} signIn={signIn} signOut={signOut} admin={admin} />
                 </div>
               </header>
               <div className="bg-transparent h-16" />
