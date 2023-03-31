@@ -11,6 +11,7 @@ import StateDot from '../components/state-dot'
 import CloudProviderLogo from '../components/cloud-provider-logo'
 import DonutChart from '../components/donut-chart'
 import Banner from '../components/banner'
+import YouTubeVideo from '../components/youtube-video'
 
 const Page = ({ clusters, status }) => {
   const router = useRouter()
@@ -188,6 +189,7 @@ const Page = ({ clusters, status }) => {
           )
         })}
       </ul>
+      <YouTubeVideo id={process.env.NEXT_PUBLIC_NEWSLETTER_YOUTUBE_ID} title="CockroachDB Cloud API Demo Video" />
     </section>
   )
 }

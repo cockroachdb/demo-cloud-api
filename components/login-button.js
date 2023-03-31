@@ -87,6 +87,10 @@ const LoginButton = ({ session, signIn, signOut, admin }) => {
   )
 }
 
+LoginButton.defaultProps = {
+  admin: false
+}
+
 LoginButton.propTypes = {
   /** next-auth seesion object */
   session: PropTypes.shape({
