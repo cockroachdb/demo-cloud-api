@@ -17,5 +17,6 @@ export const authOptions = {
 }
 
 export default (req, res) => {
+  req.headers['x-forwarded-host'] = process.env.NEXTAUTH_URL
   return NextAuth(req, res, authOptions) // eslint-disable-line new-cap
 }
