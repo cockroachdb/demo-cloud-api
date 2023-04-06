@@ -189,7 +189,7 @@ const Page = ({ clusters, status }) => {
           )
         })}
       </ul>
-      <YouTubeVideo id={process.env.NEXT_PUBLIC_NEWSLETTER_YOUTUBE_ID} title='CockroachDB Cloud API Demo Video' />
+      <YouTubeVideo id={process.env.NEXT_PUBLIC_YOUTUBE_ID} title='CockroachDB Cloud API Demo Video' />
     </section>
   )
 }
