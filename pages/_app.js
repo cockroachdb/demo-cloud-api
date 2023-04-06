@@ -25,7 +25,7 @@ const App = ({ Component, pageProps: { session, ...pageProps } }) => {
         <title>{seoTitle}</title>
         <link rel="canonical" href={cdnUrl} />
         <meta name="robots" content="max-snippet:-1" />
-
+        <meta name="google-site-verification" content="etihYyfUu427u5p-XGmPGg231M6uNKL6oRoY49pUPtM" />
         {/* Primary Meta Tags */}
         <meta name="title" content={seoTitle} />
         <meta name="description" content={seoDescription} />
