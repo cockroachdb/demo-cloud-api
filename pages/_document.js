@@ -6,12 +6,12 @@ export default function Document() {
   const isProd = process.env.NODE_ENV === 'production'
 
   return (
-    <Html lang="en">
+    <Html lang='en'>
       <Head>
         {isProd ? (
           <Script
             src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GTM}`}
-            strategy="afterInteractive"
+            strategy='afterInteractive'
           />
         ) : null}
       </Head>
@@ -19,7 +19,7 @@ export default function Document() {
         <Main />
         <NextScript />
         {isProd ? (
-          <Script id="google-analytics" strategy="afterInteractive">
+          <Script id='google-analytics' strategy='afterInteractive'>
             {`
               (function (w, d, s, l, i) {
                 w[l] = w[l] || []

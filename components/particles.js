@@ -27,7 +27,7 @@ const Particles = ({ className }) => {
   })
 
   return (
-    <svg xmlns="http://www.w3.org/2000/svg" className={`${className} pointer-events-none`} viewBox="0 0 600 300">
+    <svg xmlns='http://www.w3.org/2000/svg' className={`${className} pointer-events-none`} viewBox='0 0 600 300'>
       <g>
         {particleArray.map((particle, index) => {
           const { x, y, r, duration, delay } = particle

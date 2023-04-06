@@ -10,42 +10,42 @@ import XIcon from './x-icon'
 const LoginButton = ({ session, signIn, signOut, admin }) => {
   if (session) {
     return (
-      <ul className="flex justify-end hidden lg:block">
+      <ul className='flex justify-end hidden lg:block'>
         <li>
           <DropdownMenu.Root>
             <DropdownMenu.Trigger asChild>
-              <button className="flex w-auto border-none items-center gap-2 p-1" aria-label="Sign out">
-                <img alt={session.user.name} src={session.user.image} className="w-9 h-9" />
+              <button className='flex w-auto border-none items-center gap-2 p-1' aria-label='Sign out'>
+                <img alt={session.user.name} src={session.user.image} className='w-9 h-9' />
 
                 <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
+                  xmlns='http://www.w3.org/2000/svg'
+                  fill='none'
+                  viewBox='0 0 24 24'
                   strokeWidth={2}
-                  stroke="currentColor"
-                  className="w-4 h-4 stroke-black"
-                  aria-label="Down chevron"
+                  stroke='currentColor'
+                  className='w-4 h-4 stroke-black'
+                  aria-label='Down chevron'
                 >
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" aria-hidden />
+                  <path strokeLinecap='round' strokeLinejoin='round' d='M19.5 8.25l-7.5 7.5-7.5-7.5' aria-hidden />
                 </svg>
               </button>
             </DropdownMenu.Trigger>
 
             <DropdownMenu.Portal>
               <DropdownMenu.Content
-                align="end"
-                className="flex flex-col items-center bg-white border border-gray-200 shadow-lg px-4 py-6 w-52 z-50"
+                align='end'
+                className='flex flex-col items-center bg-white border border-gray-200 shadow-lg px-4 py-6 w-52 z-50'
               >
                 <DropdownMenu.Item disabled>
-                  <span className="block text-center text-xs text-brand-hidden-sapphire text-hidden-sapphire">
+                  <span className='block text-center text-xs text-brand-hidden-sapphire text-hidden-sapphire'>
                     Signed in as
                   </span>
-                  <strong className="block text-center font-bold text-lg">{session.user.name}</strong>
+                  <strong className='block text-center font-bold text-lg'>{session.user.name}</strong>
                 </DropdownMenu.Item>
-                <DropdownMenu.Separator className="w-full h-px my-4 bg-gray-200" />
+                <DropdownMenu.Separator className='w-full h-px my-4 bg-gray-200' />
                 <DropdownMenu.Item disabled>
-                  <div className="flex flex-col gap-1">
-                    <div className="flex gap-1 text-xs text-green-600">
+                  <div className='flex flex-col gap-1'>
+                    <div className='flex gap-1 text-xs text-green-600'>
                       <TickIcon /> Authenticated
                     </div>
                     <div className={`flex gap-1 text-xs ${admin ? 'text-green-600' : 'text-red-600'}`}>
@@ -54,11 +54,11 @@ const LoginButton = ({ session, signIn, signOut, admin }) => {
                   </div>
                 </DropdownMenu.Item>
 
-                <DropdownMenu.Separator className="w-full h-px my-4 bg-gray-200" />
+                <DropdownMenu.Separator className='w-full h-px my-4 bg-gray-200' />
                 <DropdownMenu.Item asChild>
                   <button
-                    aria-label="Sign out"
-                    className="grow bg-brand-starfleet-blue border border-brand-starfleet-blue text-white w-full"
+                    aria-label='Sign out'
+                    className='grow bg-brand-starfleet-blue border border-brand-starfleet-blue text-white w-full'
                     onClick={() => signOut()}
                   >
                     Sign out
@@ -72,11 +72,11 @@ const LoginButton = ({ session, signIn, signOut, admin }) => {
     )
   }
   return (
-    <ul className="flex justify-end hidden lg:block">
+    <ul className='flex justify-end hidden lg:block'>
       <li>
         <button
-          aria-label="Sign in"
-          className="bg-transparent border border-brand-starfleet-blue text-brand-starfleet-blue flex gap-1 items-center justify-center"
+          aria-label='Sign in'
+          className='bg-transparent border border-brand-starfleet-blue text-brand-starfleet-blue flex gap-1 items-center justify-center'
           onClick={() => signIn('github')}
         >
           <GitHubLogo />

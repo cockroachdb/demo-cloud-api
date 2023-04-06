@@ -17,12 +17,12 @@ const StateDot = ({ state }) => {
 
   return (
     <svg
-      xmlns="http://www.w3.org/2000/svg"
-      viewBox="0 0 24 24"
-      fill="currentColor"
+      xmlns='http://www.w3.org/2000/svg'
+      viewBox='0 0 24 24'
+      fill='currentColor'
       className={`w-2 h-2 mt-0.5 ${getColor(state)}`}
     >
-      <circle cx="12" cy="12" r="12" />
+      <circle cx='12' cy='12' r='12' />
     </svg>
   )
 }

@@ -22,37 +22,37 @@ const ClusterNodes = ({ clusterId }) => {
   })
 
   return (
-    <div className="flex flex-col gap-4 rounded-lg bg-white shadow p-4 sm:p-8 overflow-x-scroll">
-      <strong className="flex gap-2 items-center font-bold text-lg text-brand-hidden-sapphire">
+    <div className='flex flex-col gap-4 rounded-lg bg-white shadow p-4 sm:p-8 overflow-x-scroll'>
+      <strong className='flex gap-2 items-center font-bold text-lg text-brand-hidden-sapphire'>
         <svg
-          xmlns="http://www.w3.org/2000/svg"
-          fill="none"
-          viewBox="0 0 24 24"
+          xmlns='http://www.w3.org/2000/svg'
+          fill='none'
+          viewBox='0 0 24 24'
           strokeWidth={1.5}
-          stroke="currentColor"
-          className="w-6 h-6"
-          aria-label="Nodes icon"
+          stroke='currentColor'
+          className='w-6 h-6'
+          aria-label='Nodes icon'
         >
           <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            d="M8.25 3v1.5M4.5 8.25H3m18 0h-1.5M4.5 12H3m18 0h-1.5m-15 3.75H3m18 0h-1.5M8.25 19.5V21M12 3v1.5m0 15V21m3.75-18v1.5m0 15V21m-9-1.5h10.5a2.25 2.25 0 002.25-2.25V6.75a2.25 2.25 0 00-2.25-2.25H6.75A2.25 2.25 0 004.5 6.75v10.5a2.25 2.25 0 002.25 2.25zm.75-12h9v9h-9v-9z"
+            strokeLinecap='round'
+            strokeLinejoin='round'
+            d='M8.25 3v1.5M4.5 8.25H3m18 0h-1.5M4.5 12H3m18 0h-1.5m-15 3.75H3m18 0h-1.5M8.25 19.5V21M12 3v1.5m0 15V21m3.75-18v1.5m0 15V21m-9-1.5h10.5a2.25 2.25 0 002.25-2.25V6.75a2.25 2.25 0 00-2.25-2.25H6.75A2.25 2.25 0 004.5 6.75v10.5a2.25 2.25 0 002.25 2.25zm.75-12h9v9h-9v-9z'
           />
         </svg>
         Nodes
       </strong>
       <div className={`h-full flex overflow-x-scroll ${nodes ? 'flex-col' : ''}`}>
         {nodesStatus === 'error' ? <ErrorAnnounce /> : null}
-        {nodesStatus === 'loading' ? <Loading className="mx-auto self-center" /> : null}
+        {nodesStatus === 'loading' ? <Loading className='mx-auto self-center' /> : null}
         {nodes ? (
           <Fragment>
-            <div className="overflow-y-auto xl:h-[390px] rounded border border-brand-neutral-100">
-              <table className="table-auto text-sm text-left m-0 min-w-[280px]">
-                <thead className="border-b border-b-brand-neutral-400 text-brand-hidden-saphire">
+            <div className='overflow-y-auto xl:h-[390px] rounded border border-brand-neutral-100'>
+              <table className='table-auto text-sm text-left m-0 min-w-[280px]'>
+                <thead className='border-b border-b-brand-neutral-400 text-brand-hidden-saphire'>
                   <tr>
-                    <td className="px-2 py-4">Name</td>
-                    <td className="px-2 py-4">Region</td>
-                    <td className="px-2 py-4 text-right">Status</td>
+                    <td className='px-2 py-4'>Name</td>
+                    <td className='px-2 py-4'>Region</td>
+                    <td className='px-2 py-4 text-right'>Status</td>
                   </tr>
                 </thead>
                 <tbody>
@@ -60,10 +60,10 @@ const ClusterNodes = ({ clusterId }) => {
                     const { name, region_name, status } = node
 
                     return (
-                      <tr key={index} className="odd:bg-brand-gray-f4 font-medium">
-                        <td className="whitespace-nowrap font-bold p-2">{name}</td>
-                        <td className="whitespace-nowrap p-2">{region_name}</td>
-                        <td className="whitespace-nowrap flex p-2 justify-end">{<StateBadge state={status} />}</td>
+                      <tr key={index} className='odd:bg-brand-gray-f4 font-medium'>
+                        <td className='whitespace-nowrap font-bold p-2'>{name}</td>
+                        <td className='whitespace-nowrap p-2'>{region_name}</td>
+                        <td className='whitespace-nowrap flex p-2 justify-end'>{<StateBadge state={status} />}</td>
                       </tr>
                     )
                   })}

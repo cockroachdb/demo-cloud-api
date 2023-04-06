@@ -51,40 +51,40 @@ const DonutChart = ({ states }) => {
     .join()
 
   return (
-    <div className="relative flex-1 mx-auto">
-      <div className="absolute flex items-center justify-center rounded-full bg-brand-narwhal-grey w-4/6 h-4/6 top-[50%] left-[50%] -translate-x-1/2 -translate-y-1/2">
-        <div className="mb-3 leading-none">
-          <strong className="block font-black text-2xl text-center text-brand-starfleet-blue">State</strong>
-          <small className="flex gap-2 items-center text-xxs text-center text-brand-light">
-            <span className="relative h-2 w-2">
-              <span className="absolute w-full h-full rounded-full bg-brand-starfleet-blue motion-safe:animate-ping "></span>
-              <span className="absolute w-full h-full rounded-full bg-brand-starfleet-blue"></span>
+    <div className='relative flex-1 mx-auto'>
+      <div className='absolute flex items-center justify-center rounded-full bg-brand-narwhal-grey w-4/6 h-4/6 top-[50%] left-[50%] -translate-x-1/2 -translate-y-1/2'>
+        <div className='mb-3 leading-none'>
+          <strong className='block font-black text-2xl text-center text-brand-starfleet-blue'>State</strong>
+          <small className='flex gap-2 items-center text-xxs text-center text-brand-light'>
+            <span className='relative h-2 w-2'>
+              <span className='absolute w-full h-full rounded-full bg-brand-starfleet-blue motion-safe:animate-ping '></span>
+              <span className='absolute w-full h-full rounded-full bg-brand-starfleet-blue'></span>
             </span>
             /api/v1/clusters
           </small>
         </div>
       </div>
-      <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" className="w-full h-full rounded-full">
+      <svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg' className='w-full h-full rounded-full'>
         <defs>
-          <linearGradient id="divider" x1="0" x2="0" y1="0" y2="1">
+          <linearGradient id='divider' x1='0' x2='0' y1='0' y2='1'>
             <stop
-              offset="0%"
-              className="[--start-color:var(--color-brand-narwhal-gray)]"
-              stopColor="var(--start-color)"
+              offset='0%'
+              className='[--start-color:var(--color-brand-narwhal-gray)]'
+              stopColor='var(--start-color)'
             />
-            <stop offset="20%" className="[--mid-color:var(--color-brand-narwhal-gray)]" stopColor="var(--mid-color)" />
-            <stop offset="21%" className="[--end-color:var(--color-transparent)]" stopColor="var(--end-color)" />
-            <stop offset="100%" className="[--end-color:var(--color-transparent)]" stopColor="var(--end-color)" />
+            <stop offset='20%' className='[--mid-color:var(--color-brand-narwhal-gray)]' stopColor='var(--mid-color)' />
+            <stop offset='21%' className='[--end-color:var(--color-transparent)]' stopColor='var(--end-color)' />
+            <stop offset='100%' className='[--end-color:var(--color-transparent)]' stopColor='var(--end-color)' />
           </linearGradient>
         </defs>
 
-        <clipPath id="hole">
-          <path d="M 50 0 a 50 50 0 0 1 0 100 50 50 0 0 1 0 -100 v 18 a 2 2 0 0 0 0 64 2 2 0 0 0 0 -64" />
+        <clipPath id='hole'>
+          <path d='M 50 0 a 50 50 0 0 1 0 100 50 50 0 0 1 0 -100 v 18 a 2 2 0 0 0 0 64 2 2 0 0 0 0 -64' />
         </clipPath>
-        <foreignObject x="0" y="0" width="100" height="100" clipPath="url(#hole)">
+        <foreignObject x='0' y='0' width='100' height='100' clipPath='url(#hole)'>
           <div
-            xmlns="http://www.w3.org/1999/xhtml"
-            className="w-full h-full"
+            xmlns='http://www.w3.org/1999/xhtml'
+            className='w-full h-full'
             style={{
               background: `conic-gradient(${css_string})`
             }}
@@ -94,10 +94,10 @@ const DonutChart = ({ states }) => {
           return (
             <rect
               key={index}
-              width="2"
-              height="100"
-              x="50%"
-              fill="url(#divider)"
+              width='2'
+              height='100'
+              x='50%'
+              fill='url(#divider)'
               style={{
                 transformBox: 'fill-box',
                 transformOrigin: 'center',
