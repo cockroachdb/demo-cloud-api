@@ -2,7 +2,7 @@ import React from 'react'
 import Script from 'next/script'
 import { Html, Head, Main, NextScript } from 'next/document'
 
-export default function Document() {
+const Document = () => {
   const isProd = process.env.NODE_ENV === 'production'
 
   return (
@@ -38,3 +38,5 @@ export default function Document() {
     </Html>
   )
 }
+
+export default Document
