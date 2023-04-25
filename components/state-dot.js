@@ -29,7 +29,7 @@ const StateDot = ({ state }) => {
 
 StateDot.propTypes = {
   /** Trimmed string of types of state from /api/v1/clusters */
-  state: PropTypes.oneOf(['UNSPECIFIED', 'CREATED', 'FAILED']).isRequired
+  state: PropTypes.oneOf(['LOCKED', 'UNSPECIFIED', 'CREATED', 'FAILED']).isRequired
 }
 
 export default StateDot

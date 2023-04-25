@@ -7,6 +7,7 @@ import MarketoForm from './marketo-form'
 
 const NewsletterForm = ({ formId }) => {
   const [email, setEmail] = useState('')
+  const [checked, setChecked] = useState(false)
   const [state, dispatch] = useReducer(reducer, initialState)
 
   const handleSubmit = (event) => {
@@ -30,7 +31,7 @@ const NewsletterForm = ({ formId }) => {
 
   return (
     <section className='bg-brand-white rounded shadow px-4 py-8 sm:p-8'>
-      <div className='flex flex-col mx-auto md:max-w-lg gap-1'>
+      <div className='flex flex-col mx-auto md:max-w-lg gap-2'>
         <strong className='flex gap-2 items-center justify-center font-bold text-lg text-brand-hidden-sapphire'>
           <svg
             xmlns='http://www.w3.org/2000/svg'
@@ -73,7 +74,7 @@ const NewsletterForm = ({ formId }) => {
             <button
               type='submit'
               className='text-sm min-w-fit border-brand-electric-purple bg-brand-electric-purple text-white disabled:border-gray-200 disabled:bg-gray-200 disabled:text-brand-hidden-sapphire disabled:cursor-not-allowed px-2'
-              disabled={state.isSubmitting}
+              disabled={state.isSubmitting || !checked}
               aria-label='Newsletter subscribe'
             >
               <svg
@@ -92,22 +93,56 @@ const NewsletterForm = ({ formId }) => {
               </svg>
             </button>
           </form>
+
           <span className='flex items-start py-1 h-8'>
             {state.isSubmitting ? <span className='text-xs text-yellow-700'>Submitting...</span> : null}
             {state.success ? <span className='text-xs text-green-500'>Thanks for signing up.</span> : null}
           </span>
         </div>
-        <small className='block text-xs text-center text-brand-hidden-sapphire'>
-          To update your email preferences visit{' '}
-          <a
-            href='https://www.cockroachlabs.com/email-preferences/'
-            target='_blank'
-            rel='noreferrer'
-            className='text-brand-hidden-sapphire hover:text-brand-electric-purple'
-          >
-            cockroachlabs.com
-          </a>
-        </small>
+        <div className='flex flex-col gap-4'>
+          <div className='flex gap-2 items-center justify-center'>
+            <input
+              checked={checked}
+              id='checkbox'
+              type='checkbox'
+              value=''
+              className='w-4 h-4 bg-red-400 focus:ring-0'
+              onChange={() => setChecked(!checked)}
+            />
+            <label htmlFor='checkbox' className='text-xs font-medium text-brand-hidden-sapphire'>
+              I agree to the{' '}
+              <a
+                href='https://www.cockroachlabs.com/cloud-terms-and-conditions/'
+                rel='noopener'
+                target='_blank'
+                className='text-brand-hidden-sapphire transition-color duration-300 hover:text-brand-electric-purple'
+              >
+                terms of service
+              </a>{' '}
+              and{' '}
+              <a
+                href='https://www.cockroachlabs.com/privacy/'
+                rel='noopener'
+                target='_blank'
+                className='text-brand-hidden-sapphire transition-color duration-300 hover:text-brand-electric-purple'
+              >
+                privacy policy
+              </a>
+            </label>
+          </div>
+
+          <small className='block text-xs text-center text-brand-hidden-sapphire'>
+            To update your email preferences visit{' '}
+            <a
+              href='https://www.cockroachlabs.com/email-preferences/'
+              target='_blank'
+              rel='noreferrer'
+              className='text-brand-hidden-sapphire hover:text-brand-electric-purple'
+            >
+              cockroachlabs.com
+            </a>
+          </small>
+        </div>
         <MarketoForm debug={false} formId={formId} />
       </div>
     </section>
