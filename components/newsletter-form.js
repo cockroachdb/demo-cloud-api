@@ -31,7 +31,7 @@ const NewsletterForm = ({ formId }) => {
 
   return (
     <section className='bg-brand-white rounded shadow px-4 py-8 sm:p-8'>
-      <div className='flex flex-col mx-auto md:max-w-lg gap-2'>
+      <div className='flex flex-col mx-auto md:max-w-lg gap-1'>
         <strong className='flex gap-2 items-center justify-center font-bold text-lg text-brand-hidden-sapphire'>
           <svg
             xmlns='http://www.w3.org/2000/svg'
@@ -94,7 +94,7 @@ const NewsletterForm = ({ formId }) => {
             </button>
           </form>
 
-          <span className='flex items-start py-1 h-8'>
+          <span className='flex items-start py-1 h-6'>
             {state.isSubmitting ? <span className='text-xs text-yellow-700'>Submitting...</span> : null}
             {state.success ? <span className='text-xs text-green-500'>Thanks for signing up.</span> : null}
           </span>
