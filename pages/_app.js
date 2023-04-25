@@ -13,7 +13,7 @@ const queryClient = new QueryClient()
 
 const App = ({ Component, pageProps: { session, ...pageProps } }) => {
   const cdnUrl = process.env.NEXT_PUBLIC_SEO_URL // with trailing slash
-  const seoTitle = 'CockroachDB Cloud API'
+  const seoTitle = 'CockroachDB Cloud API Demo'
   const seoDescription = 'A CockroachDB Cloud API Demo Application'
   const seoImage = 'cloud-api-demo-open-graph-image.jpg'
 
