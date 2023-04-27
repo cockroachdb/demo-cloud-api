@@ -31,7 +31,7 @@ const NewsletterForm = ({ formId }) => {
 
   return (
     <section className='bg-brand-white rounded shadow px-4 py-8 sm:p-8'>
-      <div className='flex flex-col mx-auto md:max-w-lg gap-1'>
+      <div className='flex flex-col mx-auto md:max-w-lg gap-2'>
         <strong className='flex gap-2 items-center justify-center font-bold text-lg text-brand-hidden-sapphire'>
           <svg
             xmlns='http://www.w3.org/2000/svg'
@@ -100,34 +100,41 @@ const NewsletterForm = ({ formId }) => {
           </span>
         </div>
         <div className='flex flex-col gap-4'>
-          <div className='flex gap-2 items-center justify-center'>
+          <div className='flex gap-2 items-start sm:items-center justify-center'>
             <input
               checked={checked}
               id='checkbox'
               type='checkbox'
               value=''
-              className='w-4 h-4 bg-red-400 focus:ring-0'
+              className='w-4 h-4 bg-red-400 mt-.5 focus:ring-0'
               onChange={() => setChecked(!checked)}
             />
-            <label htmlFor='checkbox' className='text-xs font-medium text-brand-hidden-sapphire'>
-              I agree to the{' '}
-              <a
-                href='https://www.cockroachlabs.com/cloud-terms-and-conditions/'
-                rel='noopener'
-                target='_blank'
-                className='text-brand-hidden-sapphire transition-color duration-300 hover:text-brand-electric-purple'
-              >
-                terms of service
-              </a>{' '}
-              and{' '}
-              <a
-                href='https://www.cockroachlabs.com/privacy/'
-                rel='noopener'
-                target='_blank'
-                className='text-brand-hidden-sapphire transition-color duration-300 hover:text-brand-electric-purple'
-              >
-                privacy policy
-              </a>
+            <label
+              htmlFor='checkbox'
+              className='flex flex-col sm:flex-row gap-1 text-xs font-medium text-brand-hidden-sapphire'
+            >
+              <span>
+                I agree to the{' '}
+                <a
+                  href='https://www.cockroachlabs.com/cloud-terms-and-conditions/'
+                  rel='noopener'
+                  target='_blank'
+                  className='text-brand-hidden-sapphire transition-color duration-300 hover:text-brand-electric-purple'
+                >
+                  terms of service
+                </a>
+              </span>
+              <span className='text-center sm:text-left'>
+                and{' '}
+                <a
+                  href='https://www.cockroachlabs.com/privacy/'
+                  rel='noopener'
+                  target='_blank'
+                  className='text-brand-hidden-sapphire transition-color duration-300 hover:text-brand-electric-purple'
+                >
+                  privacy policy
+                </a>
+              </span>
             </label>
           </div>
 
